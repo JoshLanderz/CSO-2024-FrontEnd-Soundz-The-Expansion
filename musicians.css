@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+:root {
+
+    /*Colors*/
+    --primary-clr: #1E1E1E;
+    --primary-bg-clr: #FFFFFF;
+    --secondary-clr: rgb(45, 22, 116, 0.97);
+    --ukraine-blue: #0074FD;
+    --ukraine-yellow: #FFF500;
+    --frame-clr: #F8F8F8;
+    --paragraph-text-clr: #D9D9D9;
+
+    --musician-overlay: rgb(0, 0, 0, 0.1);
+    --experience-overlay: rgb(0, 0, 0, 0.4);
+    --musician-overlay-hover: rgb(0, 0, 0);
+
+    /*Fonts*/
+    --Baloo: 'Baloo';
+    --Montserrat: 'Montserrat', sans-serif;
+    --Iceland: 'Iceland', cursive;
+    --Inter: 'Inter', sans-serif;
+    --Karla: 'Karla', sans-serif;
+
+    --section-outline: 1px solid red;
+    --custom-outline: 1px solid red;
+
+    --baseline-m-top: 8px;
+    
+    --section-padding-inline: 3rem;
+    --section-margin-top: 4rem;
+    --section-padding-bottom: 2rem;
+
+    --header-top: 3rem;
+    --header-bottom: 10px;
+
+    --paragragh-gap: 20px;
+
+    --musician-main-block: 2rem;
+    --musician-desc-block: 1rem 8px;
+    --musician-card-bottom: 2rem;
+
+    --input-text-placeholder-padding: 15px;
+
+
+        /*Fonts*/
+        --ff-Jaldi: "Jaldi", sans-serif;
+    
+        /*Colors*/
+        --black-currant: rgb(14, 5, 15); 
+        --hero-bg-overlay: rgb(14, 5, 15, 0.7);
+        --navibar-bg-transparent: rgb(45, 22, 116, 0.08);
+        --darker-blue-primary: rgb(45, 22, 116);
+        --darker-blue-primary-nav-transparent: rgb(45, 22, 116, 0.97);
+        --darker-blue-primary-transparent: rgb(45, 22, 116, 0.5);
+        --light-purple-primary: rgb(146, 113, 194);
+        --title-purple: rgb(163, 118, 243);
+        --garrison-red: rgb(132, 19, 19);
+        --genre-edm-purple: rgb(112, 58, 207, 0.6);
+
+    }
+
+  /*::-webkit-scrollbar{
+      width: 0px;
+      background-color: var(--secondary-clr);
+  }
+  
+  ::-webkit-scrollbar-thumb:horizontal {
+      width: 0.1px;
+      height: 20px;
+      background-color:var(--paragraph-text-clr);
+  }*/
+
+  ::-moz-selection { /* Code for Firefox */
+    color: var(--paragraph-text-clr);
+    background-color: #22083d;
+  }
+  
+  ::selection {
+    color: var(--paragraph-text-clr);
+    background-color: #500e97;
+  }
+
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    }
+
+
+  @keyframes artist-name-animation {
+    from {transform: translateX(100px);}
+    to {transform: translateX(0px);}
+  }
+
+  .artist-user-icon {
+    font-size: 24px;
+  }
+
+  #section2 {
+    margin-top: var(--section-margin-top);
+    animation-name: section2-animation;
+  }
+  
+  .full-roster-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+  }
+
+  .full-roster-navigation .header-wrapper .header {
+    color: var(--paragraph-text-clr);
+  }
+
+  #section3 .header-wrapper2 .header {
+    color: var(--paragraph-text-clr);
+  }
+
+  
+  .full-roster-elements-wrapper {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: fit-content;
+    background-color: var(--darker-blue-primary-nav-transparent);
+    position: relative;
+  }
+
+  .filter-dropdown {
+    display: grid;
+    width: 100%;
+    z-index: 1;
+    padding: 1rem;
+    position: absolute;
+    bottom: -360px;
+    right: 0;
+    background-color: var(--darker-blue-primary-nav-transparent);
+    gap: 20px;
+  }
+
+  .filter-by-year-wrapper, .filter-by-order-wrapper {
+    width: 100%;
+    display: grid;
+    gap: 8px;
+    font-family: var(--Inter);
+  }
+
+  .filter-by-year-heading {
+    width: 100%;
+    display: flex;
+  }
+
+  .filter-by-header {
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    color: var(--darker-blue-primary-nav-transparent);
+  }
+
+  .filter-links-wrapper {
+    display: grid;
+    gap: 5px;
+  }
+
+  .filter-links {
+    padding: 5px;
+    text-decoration: none;
+    font-family: var(--Inter);
+  }
+
+  .filter-links:hover {
+    background-color: var(--primary-clr);
+    color: var(--paragraph-text-clr);
+  }
+  
+  .filter-links:focus {
+    background-color: var(--primary-clr);
+    color: var(--paragraph-text-clr);
+  }
+  
+
+  #rosterSearchField {
+    width: 100%;
+    border: none;
+    background-color: var(--primary-clr);
+    color: white;
+    padding-block: 10px;
+    padding-inline: 10px 1.9rem;
+    font-family: var(--Inter);
+    outline: none;
+  }
+
+  
+  #rosterSearchField::placeholder {
+    color: white;
+    font-family: var(--Inter);
+  }
+
+  .clear-search-btn {
+    border: none;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 36%;
+    cursor: pointer;
+    color: var(--frame-clr);
+  }
+
+  .clear-search-icon {
+    color: var(--primary-clr);
+  }
+
+  .filter-btn {
+    transition: linear 0.2s;
+    width: 100%;
+    border: none;
+    background-color: var(--primary-clr);
+    color: var(--paragraph-text-clr);
+    font-weight: bold;
+    padding-block: 7px;
+    padding-inline: 30px;
+    font-family: var(--ff-Jaldi);
+    cursor: pointer;
+  }
+
+  .filter-btn:hover {
+    transition: linear 0.2s;    
+  } 
+  
+  .filter-btn:focus {
+    transition: linear 0.2s;
+  }
+
+  .filter-btn::placeholder {
+    color: var(--paragraph-text-clr);
+    font-family: var(--Inter);
+  }
+
+  .full-roster-musicians-wrapper {
+    padding-top: var(--section-margin-top);
+    padding-bottom: var(--section-padding-bottom);
+    width: 100%;
+    height: fit-content;
+  }
+
+  
+  .roster-search-results-ul {
+    height: 515px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+  }
+
+  #roster-search-results-ul1, #roster-search-results-ul2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  
+  .roster-wrapper {
+    width: 100%;
+    position: relative;
+  }
+  
+  .roster-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .seacrh-results-wrapper {
+    z-index: 100;
+  }
+  
+  .seacrh-results {
+    font-family: var(--ff-Jaldi);
+    margin-top: -1px; /* Prevent double borders */
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    transition: linear 0.5s;
+    animation-name: search-results-animation;
+    animation-duration: 0.5s;
+    animation-direction: forwards;
+  }
+
+  .seacrh-results:focus {
+    transition: linear 0.5s;
+    transform: translateY(-10px);
+  }
+
+  .seacrh-results:hover {
+    transition: linear 0.5s;
+    transform: translateY(-10px);
+  }
+
+  .search-result-text-content-span {
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    font-size: 14px;
+    background-color: var(--darker-blue-primary-nav-transparent);
+    color: white;
+    font-family: var(--ff-Jaldi);
+  }
+
+  @keyframes search-results-animation {
+    from {opacity: 0}
+    to {opacity: 1;}
+  }
+
+  .full-roster-pagination {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .full-roster-pagination-ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    list-style-type: none;
+  }
+
+  .full-roster-pagination-link {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: var(--Montserrat);
+    color: var(--paragraph-text-clr);
+    transition: linear 0.1s;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  #pagination-backward {
+    opacity: 0.1;
+  }
+
+  .full-roster-pagination-link:hover {
+    color: var(--secondary-clr);
+    transition: linear 0.1s;
+  }
