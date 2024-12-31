@@ -710,6 +710,50 @@ fesRemainingTime.textContent = "0:00";
         </div>
         <div></div>
     </section>
+    <hr>
+
+        <!--Title-->
+        <h1 class="discussion-forum-title">Discussion Forum</h1>
+        
+        <!--Discussion Forum Section-->
+        <div class="discussion-forum-wrapper">
+            <div class="connections-and-topics">
+                <ul style="display: flex; margin: 0; padding: 0; gap: 1rem;">
+                    <li>Join the conversation!
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+            <form id="discussion-form" action="">
+
+                <div class="comment-profile" style="display: grid;">
+                    <div class="profile-wrapper">
+                        <img id="profile-img" class="profile-img" src="Images/FE Soundz - Profile Icons/male.png">
+                        
+                        <label id="profile-name" for="profile-img"></label>
+
+                        <script>
+                            const profileName = document.getElementById("profile-name");
+
+                            profileName.innerHTML = storedUsername;
+
+                        </script>
+                    </div>
+
+                    <!--Comment Field-->
+                    <textarea type="text" id="comment-text-input" class="comment-text-input" placeholder=""></textarea>
+                </div>
+
+                <!--Submit Button-->
+                <button type="submit" id="comment-submit-btn">Post
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+
+        </div>
+
+
     <br><br><br>
     <hr class="section-break-hr">
 </main>
