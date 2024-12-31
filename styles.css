@@ -457,6 +457,7 @@ ul, li {
     background-size: 200%;
     background-image: var(--scroll-linear-gradient);
     animation: navigationScroll 5s infinite alternate;
+    z-index: 100;
 }
 
 
@@ -2746,6 +2747,94 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     color: var(--darker-blue-primary);
   }
 
+  /*Explore Page*/
+  .full-roster-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .full-roster-elements-wrapper {
+    border-radius: 5px 5px 0px 0px;
+    background-image: var(--cta-text-linear-gradient);
+  }
+
+  .filter-dropdown {
+    background-image: var(--fotn-card-two-linear-gradient);
+  }
+
+  /**/
+  .discussion-forum-wrapper {
+    margin-top: 15px;
+    padding: 2rem;
+    background-position: left;
+    background-size: 200%;
+    background-image: var(--fotn-card-one-linear-gradient);
+    animation: heroContentAnimate 5s infinite alternate;
+  }
+
+  .discussion-forum-wrapper {
+    font-family: var(--ff-Jaldi);
+  }
+
+  .discussion-forum-title {
+    font-family: var(--ff-Jaldi);
+  }
+
+  .connections-and-topics {
+    font-size: 28px;
+  }
+
+  .connections-and-topics a, .connections-and-topics:visited {
+    color: white;
+  }
+
+  .comment-profile {
+    display: grid;
+    margin-top: 25px;
+    gap: 10px;
+  }
+
+   /*Profile Wrapper*/
+  .profile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .comment-text-input {
+        resize: none;
+        outline: none;
+        width: 50%;
+        height: 55px;
+        border-radius: 5px;
+        background: none;
+        border: 1px solid rgb(255, 255, 255, 0.5);
+        color: white;
+        padding: 14px;
+  }
+
+  #comment-submit-btn {
+       background-color: var(--darker-blue-primary-nav-transparent);
+       border: none;
+       margin-top: 1rem;
+       color: white;
+       padding: 10px 25px;
+       border-radius: 3px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       font-weight: bold;
+       text-transform: uppercase;
+       gap: 7px;
+       cursor: pointer;
+  }
 
   @media screen and (max-width: 1140px) {
     .welcome-pitch-heading {
