@@ -31,9 +31,9 @@
                 <div id="login" class="modal">
                 </div>
 
-                  <form class="modal-content" action="" method="post">
+                  <form class="modal-content" action="">
                              
-                    <div class="login-container">
+                    <div id="login-container" class="login-container">
 
                       <div class="login-user-psw-wrapper">
                         
@@ -44,6 +44,7 @@
                         </div>
                       </div> 
 
+                      <label id="login-error-message" for="login-username-input" style="position: absolute;"></label>
                       <div class="login-confirmation-wrapper">
                         <div class="remember-me-wrapper">
                             <input type="checkbox" checked="checked" name="remember">
@@ -52,13 +53,31 @@
                             </p>
                         </div>
 
-                        <button class="loginFormBtn" type="submit">Login</button>
+                        <button class="loginFormBtn" type="button" onclick="handleLogin(event)">Login</button>
                       </div>
 
                       <div class="container">
                         <button class="loginFormBtn" type="button" class="cancelbtn" onclick="closeModal();">Cancel</button>
                       </div>
                     </div>
+
+                    <!--Avatar Selection-->
+                    <!--<div class="avatar-selection" id="avatar-selection" style="display: none;">
+                        <h1 class="avatar-heading">Please select an Avatar</h1>
+                        <div class="avatar-selection-header">
+                            <div class="avatar-button-wrapper">
+                                <button onclick="selectAvatar()" class="male-button">
+                                    <img src="/Images/FE Soundz - Profile Icons/male.png" alt="Male Avatar">
+                                </button>
+                            </div>
+
+                            <div class="avatar-button-wrapper">
+                                <button onclick="selectAvatar()" class="female-button">
+                                    <img src="/Images/FE Soundz - Profile Icons/female.png" alt="Female Avatar">
+                                </button>
+                            </div>
+                        </div>
+                    </div>-->
                   </form>
                 </div>
             
@@ -70,7 +89,7 @@
 
     <div class="bg-overlay"></div>
 
-     <div class="space" id="space">
+    <div class="space" id="space">
         
         <div class="logo-wrapper">
             <img class="logo" src="https://github.com/JoshLanderz19/CW3---Front-End-Soundz-Repository/blob/main/FrontEnd%20Soundz%20Logo.png?raw=true" alt="FrontEnd Soundz logo">
@@ -92,54 +111,9 @@
         <div class="naivbar-login-wrapper">
             <i class="fa-solid fa-user" style="color: #fcfcfc;"></i> 
             <!-- <a class="login-btn" href="login.html">Login</a>-->
-            <button class="loginBtn" onclick="showLogin()">Log In</button>
-            <p id="login-welcome-text"></p>
+            <button id="loginBtn" class="loginBtn" onclick="showLogin()">Log In</button>
+            <p id="login-welcome-text"></p>    
         </div>
-              
-
-        <script>
-            function searchOpen() {
-const defaultSearchEl = document.getElementById("searchEl");
-
-defaultSearchEl.classList.remove("openSearchEl");
-defaultSearchEl.classList.add("newSearchEl");
-
-const searchIcon = document.getElementById("search-bar-new-icon");
-
-searchIcon.style.right = "12px";
-}
-
-function showLogin() {
-document.getElementById("loginModal").style.display = "block";
-}
-
-function closeModal() {
-document.getElementById("loginModal").style.display = "none";
-}
-// Function to handle login confirmation (button click)
-function handleLogin() {
-// Prevent default form submission behavior
-event.preventDefault();
-const username = document.getElementById("login-username-input").value;
-const welcomeText = document.getElementById("login-welcome-text");
-welcomeText.textContent = "Welcome, " + username + "!";
-// Save username in local storage
-localStorage.setItem("loggedInUsername", username);
-
-closeModal();
-}
-
-// Check for stored username on page load
-const storedUsername = localStorage.getItem("loggedInUsername");
-if (storedUsername) {
-const welcomeText = document.getElementById("login-welcome-text");
-welcomeText.textContent = "Welcome, " + storedUsername;
-}
-
-// Attach the handleLogin function to the login button click event
-const loginButton = document.querySelector('.loginFormBtn[type="submit"]');
-loginButton.addEventListener('click', handleLogin);
-        </script>
     </div>
 
     <div class="music-library-header-content">
@@ -713,46 +687,156 @@ fesRemainingTime.textContent = "0:00";
     <hr>
 
         <!--Title-->
-        <h1 class="discussion-forum-title">Discussion Forum</h1>
-        
+    <h1 class="discussion-forum-title">Discussion Forum</h1>
+    <section class="discussion-forum-section">
         <!--Discussion Forum Section-->
+        <div class="forum-overlay" id="forum-overlay" style="z-index: 1;">
+            <div class="forum-guest-welcome">
+                <img src="Images/Content/FrontEnd Soundz Logo.png" alt="" width="380px">
+                <div class="text-content">
+                    <h1 class="forum-guest-welcome-heading">Hey there! 🌟</h1>
+                    <p class="forum-guest-welcome-text">To join the conversation, please log in to your account.<br>
+                    <span>
+                        We can't wait to hear what you have to say! 😊</span>
+                    </p>
+                    <div class="discussion-forum-login-wrapper">
+                            <button onclick="showLogin()">Sign up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="discussion-forum-wrapper">
             <div class="connections-and-topics">
-                <ul style="display: flex; margin: 0; padding: 0; gap: 1rem;">
-                    <li>Join the conversation!
-                        <a href=""></a>
-                        <a href=""></a>
-                    </li>
-                </ul>
+                <h1 class="discussion-forum-cta-subtitle">Join the conversation!</h1>
             </div>
-            <form id="discussion-form" action="">
-
+    
+            <form id="discussion-form">
                 <div class="comment-profile" style="display: grid;">
                     <div class="profile-wrapper">
                         <img id="profile-img" class="profile-img" src="Images/FE Soundz - Profile Icons/male.png">
-                        
-                        <label id="profile-name" for="profile-img"></label>
-
-                        <script>
-                            const profileName = document.getElementById("profile-name");
-
-                            profileName.innerHTML = storedUsername;
-
-                        </script>
+                        <input id="profile-name" for="profile-img" value="">
                     </div>
-
+    
                     <!--Comment Field-->
-                    <textarea type="text" id="comment-text-input" class="comment-text-input" placeholder=""></textarea>
+                    <textarea type="text" id="comment-text-input" class="comment-text-input" placeholder="ghddfh"></textarea>
                 </div>
-
+    
                 <!--Submit Button-->
-                <button type="submit" id="comment-submit-btn">Post
+                <button id="comment-submit-btn">Post
                     <i class="fas fa-paper-plane"></i>
                 </button>
+
+                <img class="discussion-forum-fez-logo" src="Images/Content/FrontEnd Soundz Logo.png">
             </form>
-
         </div>
+    
+        <div id="discussion-forum-comments-wrapper" style="display: none">
+        </div>
+        
+    <script>
+        async function saveComment(commentText) {
+    const storedUsername = localStorage.getItem("loggedInUsername");
+    
+    const response = await fetch('http://localhost:3000/api/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ profileName: storedUsername, text: commentText })
+    });
 
+    if (!response.ok) {
+        console.error('Failed to save comment');
+        return;
+    }
+
+    const newComment = await response.json();
+    displayComments(); // Refresh comments display
+}
+
+async function displayComments() {
+    const commentsWrapper = document.getElementById("discussion-forum-comments-wrapper");
+    commentsWrapper.innerHTML = ''; // Clear the existing comments
+
+    const response = await fetch('http://localhost:3000/api/comments');
+    if (!response.ok) {
+        console.error('Failed to fetch comments');
+        return;
+    }
+
+    const comments = await response.json();
+    //comments.reverse(); // Show most recent comments first
+
+    comments.forEach(comment => {
+        const commentBlock = document.createElement("div");
+        commentBlock.classList.add("comment-block-wrapper");
+
+        const commentDate = new Date(comment.date);
+        const timeSincePostedComment = getTimeAgo(commentDate);
+
+        commentBlock.innerHTML = `
+            <div class="comment-block-cards">
+                <p class="time-since-posted-label">Sent by
+                    <span>${comment.profileName}&nbsp;</span>
+                    ${timeSincePostedComment}
+                </p>
+                <p>${comment.text}</p>
+            </div>
+        `;
+
+        commentsWrapper.appendChild(commentBlock);
+    });
+}
+
+        // Function to display the comments
+
+        // Function to calculate the time ago from the comment's date
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diff = Math.floor((now - date) / 1000); // Difference in seconds
+
+            const seconds = diff % 60;
+            const minutes = Math.floor(diff / 60) % 60;
+            const hours = Math.floor(diff / 3600) % 24;
+            const days = Math.floor(diff / 86400);
+
+            if (days > 0) { 
+                return `${days} day${days > 1 ? 's' : ''} ago`;
+            } else if (hours > 0) {
+                return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            } else if (minutes > 0) {
+                return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+            } else {
+                return `${seconds + 1} second${seconds > 1 ? 's' : ''} ago`;
+            }
+        }
+
+        // Function to handle the comment submission
+        function submitComment(event) {
+            event.preventDefault(); // Prevent the default form submit behavior
+
+            const commentText = document.getElementById("comment-text-input").value;
+            if (commentText.trim()) {
+                saveComment(commentText);
+                displayComments(); // Re-display comments after adding a new one
+                document.getElementById("comment-text-input").value = ''; // Clear the textarea
+            } else {
+                alert("Please enter a comment.");
+            }
+        }
+
+        // Event listener for the submit button
+        document.getElementById("comment-submit-btn").addEventListener("click", submitComment);
+
+        // Display comments on page load
+        window.onload = function() {
+            displayComments();
+        };
+    </script>
+    </section>
+    
 
     <br><br><br>
     <hr class="section-break-hr">
@@ -816,5 +900,6 @@ fesRemainingTime.textContent = "0:00";
     </div>
 </section>
 <script src="script.js"></script>
+<script src="server.js"></script>
 </body>
 </html>
