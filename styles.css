@@ -18,15 +18,17 @@ Line 1638: Music Library Page
     --black-currant-transparent: rgb(14, 5, 15, 0.9);
     --hero-bg-overlay: rgb(14, 5, 15, 0.7);
     --navibar-bg-transparent: rgb(45, 22, 116, 0.08);
-    --darker-blue-primary: rgb(45, 22, 116);
+    --darker-blue-primary: rgb(45, 22, 116);/**/
     --darker-blue-primary-nav-transparent: rgb(45, 22, 116, 0.97);
     --darker-blue-primary-transparent: rgb(45, 22, 116, 0.5);
     --light-purple-primary: rgb(146, 113, 194);
     --title-purple: rgb(163, 118, 243);
     --garrison-red: rgb(132, 19, 19);
     --genre-edm-purple: rgb(112, 58, 207, 0.6);
-    --genre-edm-purple-mobile-sidenav: rgb(112, 58, 207, 0.9);
+    --genre-edm-purple-mobile-sidenav: rgb(112, 58, 207, 0.9);/**/
     --mobile-sidenav-linear-gradient: linear-gradient(to left, var(--genre-edm-purple-mobile-sidenav), var(--darker-blue-primary));
+
+    --forum-overlay: linear-gradient(to left, rgb(45, 22, 116), rgb(14, 3, 34));
 
     --cta-text-linear-gradient: linear-gradient(45deg, var(--darker-blue-primary-transparent) 10%, var(--darker-blue-primary));
 
@@ -42,6 +44,9 @@ Line 1638: Music Library Page
     --clr-1: #2d167480;
     --clr-2: #703acf99;
     --clr-3: #ffffff;
+
+    --avatar-male-clr:#eec124;
+    --avatar-female-clr: #f366ba;
 }
 
 
@@ -538,8 +543,62 @@ ul, li {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    width: 348.5px;
+    max-width: 348.5px;
+    height: 306px;
+    overflow: hidden;
 }
 
+.avatar-selection-header {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.avatar-heading {
+    font-family: var(--ff-Jaldi);
+    font-weight: lighter;
+    color: white;
+}
+
+/* Button styles */
+.male-button, .female-button {
+    border: none;
+    border-top-left-radius: 50%;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    outline: none;
+    transition: border-top-left-radius 0.3s ease, transform 0.5s ease;
+    cursor: pointer;
+}
+
+/* Hover animation for buttons */
+.avatar-selection-header button:hover {
+    border-top-left-radius: 5%;
+    transform: translate(0px, -10px);
+}
+
+
+.avatar-selection img {
+    outline: none;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.male-button:hover {
+    border-top-left-radius: 5%;
+    background-color: yellow;
+}
+
+.female-button:hover {
+    border-top-left-radius: 5%;
+    background-color: pink;
+}
 
 .modal-content {
     display: grid;
@@ -586,6 +645,23 @@ ul, li {
 #login-username-input:focus-within {
     transition: linear 0.9s;
     outline: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+#login-error-message {
+    animation-name: loginErrorCpy;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes loginErrorCpy {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 
@@ -2764,31 +2840,137 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
   }
 
   /**/
-  .discussion-forum-wrapper {
+  .discussion-forum-section {
+    margin: 0;
     margin-top: 15px;
     padding: 2rem;
     background-position: left;
     background-size: 200%;
     background-image: var(--fotn-card-one-linear-gradient);
     animation: heroContentAnimate 5s infinite alternate;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
   }
+
+  /*Overlay*/
+  .forum-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-position: left;
+    background-size: 200%;
+    background-image: var(--forum-overlay);
+    animation: heroContentAnimate 3s infinite alternate;
+  }
+
+  .forum-guest-welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+  }
+
+  .forum-guest-welcome .text-content {
+    display: grid;
+    text-align: center;
+  }
+
+  .forum-guest-welcome > * {
+    font-family: var(--ff-Jaldi);
+  }
+
+  .forum-guest-welcome-heading {
+    font-size: 60px;
+  }
+
+  .forum-guest-welcome-text {
+    font-size: 25px;
+  } 
+
+  .forum-guest-welcome-text span {
+    background-color: var(--title-purple);
+    border-radius: 150px;
+    padding: 0px 25px;
+    font-weight: bold;
+    color: var(--hero-bg-overlay);
+  }
+
+  .discussion-forum-login-wrapper {
+    margin-top: 35px;
+  }
+
+  .discussion-forum-login-wrapper button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 15px 35px;
+    color: white;
+    font-size: 24px;
+    border-radius: 150px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .discussion-forum-login-wrapper button::after {
+    content: " ";
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    margin: 0 auto;
+    transform: translate(-50%, 50%);
+    transform-origin: left;
+    background-color: var(--clr-2);
+    left: 50%;
+    bottom: 5px;
+    opacity: 0;
+    transition: opacity 0.3s linear, width 0.3s linear;
+  }
+
+  .discussion-forum-login-wrapper button:hover::after {
+    width: 60%;
+    opacity: 1;
+  }
+
+  .discussion-forum-login-wrapper button::after {
+    opacity: 0;
+    width: 0%;
+    transition: opacity 0.3s linear, width 0.3s linear;
+  }
+
+
+
 
   .discussion-forum-wrapper {
     font-family: var(--ff-Jaldi);
+  }
+
+  .discussion-forum-fez-logo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 30px;
+    left: 20px;
   }
 
   .discussion-forum-title {
     font-family: var(--ff-Jaldi);
   }
 
-  .connections-and-topics {
+  .discussion-forum-cta-subtitle {
     font-size: 28px;
+    width: max-content;
   }
-
-  .connections-and-topics a, .connections-and-topics:visited {
-    color: white;
-  }
-
+  
   .comment-profile {
     display: grid;
     margin-top: 25px;
@@ -2803,21 +2985,29 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
   }
 
   .profile-img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
   }
 
+  #profile-name {
+    font-family: var(--ff-Jaldi);
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+  }
+
   .comment-text-input {
-        resize: none;
-        outline: none;
-        width: 50%;
-        height: 55px;
-        border-radius: 5px;
-        background: none;
-        border: 1px solid rgb(255, 255, 255, 0.5);
-        color: white;
-        padding: 14px;
+    resize: none;
+    outline: none;
+    height: 55px;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid rgb(255, 255, 255, 0.5);
+    color: white;
+    padding: 14px;
+    width: 100%;
   }
 
   #comment-submit-btn {
@@ -2834,6 +3024,52 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
        text-transform: uppercase;
        gap: 7px;
        cursor: pointer;
+  }
+
+  #discussion-forum-comments-wrapper {
+    position: relative;
+    display: grid;
+    place-content: start;
+    background-color: rgba(112, 68, 195, 0.192);
+    border-radius: 15px;
+    overflow-y: scroll;
+    margin-left: 80px;
+    padding: 40px;
+    width: 100%;
+    gap: 25px;
+  }
+
+
+  .comment-block-cards {
+    display: grid;
+    width: fit-content;
+    gap: 1px;
+    animation-name: commentCpy;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  @keyframes commentCpy {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+  }
+
+  .comment-block-cards > * {
+    font-family: var(--ff-Jaldi);
+  }
+
+  .time-since-posted-label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .time-since-posted-label span {
+    color: rgb(219, 192, 255);
   }
 
   @media screen and (max-width: 1140px) {
@@ -3308,3 +3544,7 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
         position: relative;
     }
 }
+
+
+/* Selected-artists*/
+
