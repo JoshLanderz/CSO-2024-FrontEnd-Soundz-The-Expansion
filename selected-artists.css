@@ -1,0 +1,109 @@
+.selected-artists-body {
+    background-color: var(--genre-edm-purple-mobile-sidenav);
+    margin: 0;
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    background-image: url("/Images/Content/adrian-korte-5gn2soeAc40-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.intro {
+    
+    /*margin-bottom: 50%;*/
+    display: flex;
+    height:50%;
+   }
+
+header:not(.music-library-header, .about-us-header) {
+    outline: 1px solid green;
+    height: 100vh;
+    background-image: none;
+}
+
+.selected-artists-header {
+    position: absolute;
+    margin: 3rem;
+    top: 75px;
+    color: white;
+}
+
+.selected-artists-heading {
+    font-size: 100px;
+    line-height: 120px;
+    font-weight: lighter;
+}
+
+
+.intro>p{
+    font-weight: bold;
+    padding: 50px;
+}
+
+
+    .arrow {
+        display: grid;
+        place-content: center;
+        place-items: center;
+        background: none;
+        background-color: var(--genre-edm-purple-mobile-sidenav);
+        border: none;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        transform: translate(-50%, 50%);
+        right: 20%;
+        top: 15%;
+        font-size: 55px;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+    }
+    
+    /* Define the keyframes for the up-and-down animation */
+    @keyframes upAndDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(5px);
+        }
+    }
+    
+    /* Apply the animation to the caret icon */
+    .arrow i {
+        animation: upAndDown 1s infinite ease-in-out;
+    }
+    
+
+.span>intro{
+    font-weight: bolder;
+    padding: 50px;}
+
+.alfonso-sa { 
+    width: 50%;}
+
+.bottom-boxes{
+    /*margin-top: 50%;*/
+    display: flex;
+    height: 50%;}
+
+.box1{
+    background: var(--garrison-red);
+    padding: 30px;}
+
+.box2{
+    background-color: var(--genre-edm-purple-mobile-sidenav);
+    padding: 30px;}
+
+.box3{
+    background-color: white;
+    padding: 30px;}
+    
+
+.box4{
+    background-color: var(--light-purple-primary);
+    padding: 30px;}
+

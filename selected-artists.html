@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd Soundz | It's More Than Music, It's A Movement | The Expansion!</title>
+    <link rel="icon" href="Images/Content/FrontEnd Soundz Logo.png">
+
+    <link rel="stylesheet" href="selected-artists.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!--Plyr CSS & JS CDN Links-->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+    <script src="https://kit.fontawesome.com/63d3360e1a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b5390d3db8.js" crossorigin="anonymous"></script>
+    
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jaldi:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body class="selected-artists-body">
+    <header>
+
+        <div class="bg-overlay"></div>
+    
+        <div class="space" id="space">
+            
+            <div class="logo-wrapper">
+                <img class="logo" src="https://github.com/JoshLanderz19/CW3---Front-End-Soundz-Repository/blob/main/FrontEnd%20Soundz%20Logo.png?raw=true" alt="FrontEnd Soundz logo">
+                <p class="logo-name">FrontEnd Soundz
+                    <span class="logo-span" id="logo-span">It's more than music, it's a movement</span>
+                </p>
+            </div>
+    
+            <div class="navibar-menu-space">
+                
+                <ul class="navibar-menu-list">
+                    <li class="navibar-menu-list-item"><a href="index.html">Home</a></li>
+                    <li class="navibar-menu-list-item"><a href="music library.html"> Music Library</a></li>
+                    <li class="navibar-menu-list-item"><a href="explore.html">Explore</a></li>
+                    <li class="navibar-menu-list-item"><a href="about-us.html">About Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="naivbar-login-wrapper">
+                <i class="fa-solid fa-user" style="color: #fcfcfc;"></i> 
+                <!-- <a class="login-btn" href="login.html">Login</a>-->
+                <button id="loginBtn" class="loginBtn" onclick="showLogin()">Log In</button>
+                <p id="login-welcome-text"></p>    
+            </div>
+        </div>
+    
+        <!--<div class="music-library-header-content">
+            
+    
+            <div class="music-library-header-content">
+                <div class="music-library-title-wrapper">
+                    <h1 class="music-library-title">MUSIC LIBRARY</h1>
+                </div>
+    
+                <div class="music-library-sub-title-wrapper">
+                    <h1 class="music-library-sub-title">Get a glimpse into the soundtrack of FrontEnd Soundz.<br>This curated collection showcases the music that moves us.</h1>
+                </div>
+            </div>
+        </div>-->
+        <div class="selected-artists-header">
+            <h1 class="selected-artists-heading">
+                THE CARIBBEAN <br> LEGENDS WHO <br> SHAPED THE <br> MUSIC WORLD
+            </h1>
+        </div>
+
+        <button class="arrow">
+            <i class="fa fa-caret-down"></i>
+        </button>
+
+        <article style="
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        background: white;
+        color: black;
+        padding: 40px 150px;
+        border-top-left-radius: 150px;
+        font-family: var(--ff-Jaldi);
+        font-size: 25px;
+        ">
+            Site in progress
+        </article>
+        
+        </header>
+    <div class="intro">
+        <p><span>Selected artist</span><br><br>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      
+    
+    
+         <img class="alfonso-sa" src="C:\Users\dello\OneDrive\Documents\GitHub\CW3---Front-End-Soundz-Repository\Images\Artists Images\Afonso.jpg" alt="artist">
+    </div>
+    
+    <div class="bottom-boxes">
+        <div class="box1">
+         <h1>01</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         <span class="icon wrapper">
+            <i class="fa fa-circle-arrow-right"></i>
+        </span>
+    </div>
+    
+        <div class="box2">
+            <h1>02</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+            <span class="icon wrapper">
+                <i class="fa fa-circle-arrow-right"></i>
+            </span>
+        </div>
+    
+        <div class="box3">
+            <h1>03</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+            <span class="icon wrapper">
+                <i class="fa fa-circle-arrow-right"></i></span>
+        </div>
+    
+         <div class="box4">
+             <h1>04</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <span class="icon wrapper">
+                <i class="fa fa-circle-arrow-right"></i></span>
+        </div>
+    </div>
+
+
+    <section class="footer">
+        <div class="footer-row">
+            <div class="logo-col">
+            <a class="logo-link" href="index.html">
+                <img class="logo"  src="Images/Content/FrontEnd Soundz Logo.png" alt="">
+            </a>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Communities</h4>
+                <ul class="footer-links-list">
+                    <li class="footer-links"><a href="music library.html">Music Library</a></li>
+                    <li class="footer-links"><a href="https://discord.com/invite/m7R8XQ4s">Discord</a></li>
+                    <li class="footer-links"><a href="about-us.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Useful Links</h4>
+                <ul class="footer-links-list">
+                    <li class="footer-links"><a href="#">Support</a></li>
+                    <li class="footer-links"><a href="#">Free Mobile App</a></li>
+                    <li class="footer-links"><a href="#">Privacy Policy</a></li>
+                    <li class="footer-links"><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Newsletter</h4>
+                <div class="newsletter-wrapper">
+                    <p class="newsletter-text">
+                        Subscribe to our newsletter for a monthly dose of news and updates about your favourite artists.
+                    </p>
+                    <form action="mailto:someone@example.com" enctype="text/plain">
+                        <input id="newsletterEl" type="email" placeholder="Your e-mail" required>
+                        <button class="email-button" type="submit" style="background-color:  var(--genre-edm-purple);">SUBSCRIBE</button>
+                    </form>
+                </div>
+    
+                <div class="" style="margin-top: 15px;">
+                    <a target="_blank" href="https://open.spotify.com/artist/3tpxZOPwm3IFQo00wq6hNd?si=4BSyEF3FRVuic6n8JmSBFA" class="icon-button spotify">
+                        <i class="fab fa-spotify"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/lylekam/" class="icon-button instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/KamLyle" class="icon-button twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="" class="icon-button discord">
+                        <i class="fa-brands fa-discord"></i>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <script src="server.js"></script>
+    </body>
+    </html>
