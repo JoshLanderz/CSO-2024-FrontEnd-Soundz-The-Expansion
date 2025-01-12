@@ -25,6 +25,8 @@
  
 </head>
 <body>
+
+
     <div id="loginModal" class="search-and-user-wrapper-overlay" style="display: none;">
         <div id="close-modal" onclick="closeModal()">
             <i class="fa fa-bus"></i>
@@ -35,9 +37,9 @@
                 <div id="login" class="modal">
                 </div>
 
-                  <form class="modal-content" action="" method="post">
+                  <form class="modal-content" action="">
                              
-                    <div class="login-container">
+                    <div id="login-container" class="login-container">
 
                       <div class="login-user-psw-wrapper">
                         
@@ -48,6 +50,7 @@
                         </div>
                       </div> 
 
+                      <label id="login-error-message" for="login-username-input" style="position: absolute;"></label>
                       <div class="login-confirmation-wrapper">
                         <div class="remember-me-wrapper">
                             <input type="checkbox" checked="checked" name="remember">
@@ -56,13 +59,31 @@
                             </p>
                         </div>
 
-                        <button class="loginFormBtn" type="submit">Login</button>
+                        <button class="loginFormBtn" type="button" onclick="handleLogin(event)">Login</button>
                       </div>
 
                       <div class="container">
-                        <button class="loginFormBtn" type="button" class="cancelbtn" onclick="closeModal()">Cancel</button>
+                        <button class="loginFormBtn" type="button" class="cancelbtn" onclick="closeModal();">Cancel</button>
                       </div>
                     </div>
+
+                    <!--Avatar Selection-->
+                    <!--<div class="avatar-selection" id="avatar-selection" style="display: none;">
+                        <h1 class="avatar-heading">Please select an Avatar</h1>
+                        <div class="avatar-selection-header">
+                            <div class="avatar-button-wrapper">
+                                <button onclick="selectAvatar()" class="male-button">
+                                    <img src="/Images/FE Soundz - Profile Icons/male.png" alt="Male Avatar">
+                                </button>
+                            </div>
+
+                            <div class="avatar-button-wrapper">
+                                <button onclick="selectAvatar()" class="female-button">
+                                    <img src="/Images/FE Soundz - Profile Icons/female.png" alt="Female Avatar">
+                                </button>
+                            </div>
+                        </div>
+                    </div>-->
                   </form>
                 </div>
             
@@ -95,24 +116,19 @@
             </ul>
         </div>
 
-        <div class="navibar-login-wrapper" style="display: none;">
-            <i class="fa-solid fa-user" style="color: #fcfcfc;"></i> 
-            <p id="login-welcome-text"></p>
-        </div>
     </div>
 
 <!--(Navbar & Hero Content) Dellonte's Lair-->
     <header>
     <div class="bg-overlay"></div>
 
-     <div class="space" id="space">
+    <div class="space" id="space">
         
         <div class="logo-wrapper">
             <img class="logo" src="https://github.com/JoshLanderz19/CW3---Front-End-Soundz-Repository/blob/main/FrontEnd%20Soundz%20Logo.png?raw=true" alt="FrontEnd Soundz logo">
-            <div class="logo-name">
-                <p class="logo-name-span">FrontEnd Soundz</p>
-                <sppan class="logo-span" id="logo-span">It's more than music, it's a movement</sppan>
-            </div>
+            <p class="logo-name">FrontEnd Soundz
+                <span class="logo-span" id="logo-span">It's more than music, it's a movement</span>
+            </p>
         </div>
 
         <div class="navibar-menu-space">
@@ -125,99 +141,13 @@
             </ul>
         </div>
 
-        <!--Login needs to be repaired-->
-        <div class="navibar-login-wrapper" style="display: none;">
-            <i class="fa-solid fa-user" style="color: #fcfcfc;"></i>
+        <div class="naivbar-login-wrapper">
+            <i class="fa-solid fa-user" style="color: #fcfcfc;"></i> 
+            <!-- <a class="login-btn" href="login.html">Login</a>-->
             <button class="loginBtn" onclick="showLogin()">Log In</button>
-            <p id="mobile-login-welcome-text"></p>
+            <p id="login-welcome-text"></p>
         </div>
-
-        <div class="open-mobile-sidenav-btn-wrapper">
-            <button id="open-mobile-sidenav-btn" class="open-mobile-sidenav-btn">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-
-
-<script>
-            /*function searchOpen() {
-            const defaultSearchEl = document.getElementById("searchEl");
-
-            defaultSearchEl.classList.remove("openSearchEl");
-            defaultSearchEl.classList.add("newSearchEl");
-
-            const searchIcon = document.getElementById("search-bar-new-icon");
-
-            searchIcon.style.right = "12px";
-        }*/
-
-        function showLogin() {
-            document.getElementById("loginModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("loginModal").style.display = "none";
-        }
-        // Function to handle login confirmation (button click)
-        function handleLogin() {
-            // Prevent default form submission behavior
-            event.preventDefault();
-            const username = document.getElementById("login-username-input").value;
-
-            const welcomeText = document.getElementById("login-welcome-text");
-            const mobileWelcomeText = document.getElementById("mobile-login-welcome-text");
-            
-            welcomeText.textContent = "Welcome, " + username + "!";
-            mobileWelcomeText.textContent = "Welcome, " + username + "!";
-        
-            // Save username in local storage
-            localStorage.setItem("loggedInUsername", username);
-            closeModal();
-
-            const loginBtn = document.querySelector(".loginBtn");
-            loginBtn.forEach(logBtn => {
-            loginBtn.style.display = "none";
-            });
-        }
-
-        // Check for stored username on page load
-        const storedUsername = localStorage.getItem("loggedInUsername");
-        if (storedUsername) {
-            const welcomeText = document.getElementById("login-welcome-text");
-            welcomeText.textContent = "Welcome, " + storedUsername;
-        }
-
-        // Attach the handleLogin function to the login button click event
-        const loginButton = document.querySelector('.loginFormBtn[type="submit"]');
-        loginButton.addEventListener('click', handleLogin);
-
-
-        /*Toggle Navbar*/
-       let navbar = document.getElementById("space");
-       let mobileSidebar = document.querySelector(".mobile-sidenav");
-
-       let openSidebarBtn = document.getElementById("open-mobile-sidenav-btn");
-       let closeSidebarBtn = document.getElementById("close-mobile-sidenav-btn");
-       let openSidebarWrapper = document.getElementById("open-mobile-sidenav-btn-wrapper");
-
-       openSidebarBtn.addEventListener('click', function() {
-           closeSidebarBtn.style.display = "block";
-           mobileSidebar.style.display = "block";
-           document.body.style.overflowY = "hidden";
-       });
-
-       closeSidebarBtn.addEventListener('click', function() {
-            mobileSidebar.style.display = "none";
-            document.body.style.overflowY = "auto";
-       });
-
-
-
-
-</script>
-
-                 <!--<i id="search-bar-new-icon" class="fa-solid fa-magnifying-glass" style="color:#ffffff;"></i>-->
-     </div>
+    </div>
 
     <div class="hero-wrapper">
         <!--Hero Content-->
@@ -306,6 +236,7 @@
     
 <main>
 
+    <a href="C:/Users/astra/Desktop/CSO-2024-FrontEnd-Soundz-The-Expansion-main/Fez_game/Fez_game/download">Download Pygame</a>
     <!--Featured Artists (Simone)-->
     <section class="featured-artists-section">
         <!--Section Title (FEATURED ARTISTS)-->
@@ -1089,6 +1020,8 @@ curatedGenreAlbums.forEach(album => {
     </div>
 </section>
 
-<script src="script.js" type="text/javascript"></script>
+<script src="script.js"></script>
+<script src="server.js"></script>
+<script src="login.js"></script>
 </body>
 </html>
