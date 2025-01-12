@@ -282,7 +282,7 @@ async function displayComments() {
     commentsWrapper.innerHTML = ''; // Clear the existing comments
 
     try {
-        const response = await fetch('/api/comments'); // Update URL
+        const response = await fetch('https://your-netlify-app.netlify.app/api/comments'); // Update URL
         if (!response.ok) {
             console.error('Failed to fetch comments');
             return;
@@ -312,44 +312,6 @@ async function displayComments() {
         });
     } catch (error) {
         console.error('Error fetching comments:', error);
-    }
-}
-
-async function displayComments() {
-    const commentsWrapper = document.getElementById("discussion-forum-comments-wrapper");
-    commentsWrapper.innerHTML = ''; // Clear the existing comments
-
-    try {
-    const response = await fetch('/api/comments');
-    if (!response.ok) {
-        console.error('Failed to fetch comments');
-        return;
-    }
-
-    const comments = await response.json();
-    //comments.reverse(); // Show most recent comments first
-
-    comments.forEach(comment => {
-        const commentBlock = document.createElement("div");
-        commentBlock.classList.add("comment-block-wrapper");
-
-        const commentDate = new Date(comment.date);
-        const timeSincePostedComment = getTimeAgo(commentDate);
-
-        commentBlock.innerHTML = `
-            <div class="comment-block-cards">
-                <p class="time-since-posted-label">Sent by
-                    <span>${comment.profileName}&nbsp;</span>
-                    ${timeSincePostedComment}
-                </p>
-                <p>${comment.text}</p>
-            </div>
-        `;
-
-        commentsWrapper.appendChild(commentBlock);
-    });
-    } catch (error) {
-        console.error('Failed to fetch comments', error);
     }
 }
 
