@@ -78,22 +78,26 @@ function searchOpen() {
   /////////////////////////////////
   async function saveComment(commentText) {
     const storedUsername = localStorage.getItem("loggedInUsername");
-    
-    const response = await fetch('http://localhost:3000/api/comments', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ profileName: storedUsername, text: commentText })
-    });
 
-    if (!response.ok) {
-        console.error('Failed to save comment');
-        return;
+    try {
+        const response = await fetch('http://localhost:3000/api/comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ profileName: storedUsername, text: commentText })
+        });
+
+        if (!response.ok) {
+            console.error('Failed to save comment');
+            return;
+        }
+
+        await response.json();
+        displayComments(); // Refresh comments display
+    } catch (error) {
+        console.error('Error saving comment:', error);
     }
-
-    const newComment = await response.json();
-    displayComments(); // Refresh comments display
 }
 
 async function displayComments() {
