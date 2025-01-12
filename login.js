@@ -175,7 +175,6 @@ async function displayComments() {
             displayComments();
     };*/
 
-
 //Login & Discussion Data Storing and Functionality
 function searchOpen() {
     const defaultSearchEl = document.getElementById("searchEl");
@@ -354,6 +353,11 @@ async function displayComments() {
 
         // Event listener for the submit button
         document.getElementById("comment-submit-btn").addEventListener("click", submitComment);
+
+        // Display comments on page load
+        window.onload = function() {
+            displayComments();
+    };
 
         // Display comments on page load
         window.onload = function() {
