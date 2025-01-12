@@ -257,7 +257,7 @@ function searchOpen() {
   async function saveComment(commentText) {
     const storedUsername = localStorage.getItem("loggedInUsername");
     try {
-    const response = await fetch('/api/comments', {
+    const response = await fetch('http://localhost:3000/api/comments', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -282,7 +282,7 @@ async function displayComments() {
     commentsWrapper.innerHTML = ''; // Clear the existing comments
 
     try {
-    const response = await fetch('/api/comments');
+    const response = await fetch('http://localhost:3000/api/comments');
     if (!response.ok) {
         console.error('Failed to fetch comments');
         return;
