@@ -257,7 +257,7 @@ function searchOpen() {
     const storedUsername = localStorage.getItem("loggedInUsername");
 
     try {
-        const response = await fetch('https://your-netlify-app.netlify.app/api/comments', { // Update URL
+        const response = await fetch('/api/comments', { // Update URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -282,7 +282,7 @@ async function displayComments() {
     commentsWrapper.innerHTML = ''; // Clear the existing comments
 
     try {
-        const response = await fetch('https://your-netlify-app.netlify.app/api/comments'); // Update URL
+        const response = await fetch('/api/comments'); // Update URL
         if (!response.ok) {
             console.error('Failed to fetch comments');
             return;
