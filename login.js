@@ -100,77 +100,37 @@ async function displayComments() {
     const commentsWrapper = document.getElementById("discussion-forum-comments-wrapper");
     commentsWrapper.innerHTML = ''; // Clear the existing comments
 
-    const response = await fetch('http://localhost:3000/api/comments');
-    if (!response.ok) {
-        console.error('Failed to fetch comments');
-        return;
+    try {
+        const response = await fetch('http://localhost:3000/api/comments');
+        if (!response.ok) {
+            console.error('Failed to fetch comments');
+            return;
+        }
+
+        const comments = await response.json();
+        comments.reverse(); // Show most recent comments first
+
+        comments.forEach(comment => {
+            const commentBlock = document.createElement("div");
+            commentBlock.classList.add("comment-block-wrapper");
+
+            const commentDate = new Date(comment.date);
+            const timeSincePostedComment = getTimeAgo(commentDate);
+
+            commentBlock.innerHTML = `
+                <div class="comment-block-cards">
+                    <p class="time-since-posted-label">Sent by
+                        <span>${comment.profileName}&nbsp;</span>
+                        ${timeSincePostedComment}
+                    </p>
+                    <p>${comment.text}</p>
+                </div>
+            `;
+
+            commentsWrapper.appendChild(commentBlock);
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error);
     }
-
-    const comments = await response.json();
-    //comments.reverse(); // Show most recent comments first
-
-    comments.forEach(comment => {
-        const commentBlock = document.createElement("div");
-        commentBlock.classList.add("comment-block-wrapper");
-
-        const commentDate = new Date(comment.date);
-        const timeSincePostedComment = getTimeAgo(commentDate);
-
-        commentBlock.innerHTML = `
-            <div class="comment-block-cards">
-                <p class="time-since-posted-label">Sent by
-                    <span>${comment.profileName}&nbsp;</span>
-                    ${timeSincePostedComment}
-                </p>
-                <p>${comment.text}</p>
-            </div>
-        `;
-
-        commentsWrapper.appendChild(commentBlock);
-    });
 }
 
-        // Function to display the comments
-
-        // Function to calculate the time ago from the comment's date
-        function getTimeAgo(date) {
-            const now = new Date();
-            const diff = Math.floor((now - date) / 1000); // Difference in seconds
-
-            const seconds = diff % 60;
-            const minutes = Math.floor(diff / 60) % 60;
-            const hours = Math.floor(diff / 3600) % 24;
-            const days = Math.floor(diff / 86400);
-
-            if (days > 0) { 
-                return `${days} day${days > 1 ? 's' : ''} ago`;
-            } else if (hours > 0) {
-                return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-            } else if (minutes > 0) {
-                return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-            } else {
-                return `${seconds + 1} second${seconds > 1 ? 's' : ''} ago`;
-            }
-        }
-
-        // Function to handle the comment submission
-        function submitComment(event) {
-            event.preventDefault(); // Prevent the default form submit behavior
-
-            const commentText = document.getElementById("comment-text-input").value;
-            if (commentText.trim()) {
-                saveComment(commentText);
-                displayComments(); // Re-display comments after adding a new one
-                document.getElementById("comment-text-input").value = ''; // Clear the textarea
-            } else {
-                alert("Please enter a comment.");
-            }
-        }
-
-        // Event listener for the submit button
-        document.getElementById("comment-submit-btn").addEventListener("click", submitComment);
-
-        // Display comments on page load
-        window.onload = function() {
-            displayComments();
-    };
