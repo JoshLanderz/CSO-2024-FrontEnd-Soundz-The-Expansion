@@ -255,25 +255,64 @@ function searchOpen() {
   /////////////////////////////////
   async function saveComment(commentText) {
     const storedUsername = localStorage.getItem("loggedInUsername");
+
     try {
-    const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ profileName: storedUsername, text: commentText })
-    });
+        const response = await fetch('https://your-netlify-app.netlify.app/api/comments', { // Update URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ profileName: storedUsername, text: commentText })
+        });
 
-    if (!response.ok) {
-        console.error('Failed to save comment');
-        return;
-    }
+        if (!response.ok) {
+            console.error('Failed to save comment');
+            return;
+        }
 
-    /*const newComment =*/ await response.json();
-    displayComments(); // Refresh comments display
+        await response.json();
+        displayComments(); // Refresh comments display
     } catch (error) {
-    console.error('Failed to save comment', error);
+        console.error('Error saving comment:', error);
+    }
 }
+
+async function displayComments() {
+    const commentsWrapper = document.getElementById("discussion-forum-comments-wrapper");
+    commentsWrapper.innerHTML = ''; // Clear the existing comments
+
+    try {
+        const response = await fetch('https://your-netlify-app.netlify.app/api/comments'); // Update URL
+        if (!response.ok) {
+            console.error('Failed to fetch comments');
+            return;
+        }
+
+        const comments = await response.json();
+        comments.reverse(); // Show most recent comments first
+
+        comments.forEach(comment => {
+            const commentBlock = document.createElement("div");
+            commentBlock.classList.add("comment-block-wrapper");
+
+            const commentDate = new Date(comment.date);
+            const timeSincePostedComment = getTimeAgo(commentDate);
+
+            commentBlock.innerHTML = `
+                <div class="comment-block-cards">
+                    <p class="time-since-posted-label">Sent by
+                        <span>${comment.profileName}&nbsp;</span>
+                        ${timeSincePostedComment}
+                    </p>
+                    <p>${comment.text}</p>
+                </div>
+            `;
+
+            commentsWrapper.appendChild(commentBlock);
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+    }
 }
 
 async function displayComments() {
@@ -353,11 +392,6 @@ async function displayComments() {
 
         // Event listener for the submit button
         document.getElementById("comment-submit-btn").addEventListener("click", submitComment);
-
-        // Display comments on page load
-        window.onload = function() {
-            displayComments();
-    };
 
         // Display comments on page load
         window.onload = function() {
