@@ -94,14 +94,15 @@ header {
 #explore-header {
     position: relative;
     overflow: hidden;
-    height: 500px;
     width: 100%;
-    background-image: url("Images/Content/travis-yewell-F-B7kWlkxDQ-unsplash.jpg");
+    height: 730px;
+    background-image: url("Images/Content/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center 65%;
+    background-position: center 35%; /*65%*/
     font-family: var(--ff-Jaldi);
 }
+
 
 .bg-overlay {
     position: absolute;
@@ -442,6 +443,7 @@ ul, li {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80px;
     gap: 4rem;
     width: 100vw;
     transition: linear 0.2s;
@@ -862,14 +864,122 @@ ul, li {
     font-family: var(--ff-Istok-Web);
 }
 
-.navibar-menu-list-item {
+.navibar-menu-list li {
+    height: 80px;
+    display: grid;
+    align-items: center;
+}
+
+.navibar-menu-list-item:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--light-purple-primary);
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.navibar-menu-list-item, .explore-dropdown-btn {
+    position: relative;
     width: max-content;
     list-style-type: none;
     font-family: var(--ff-Jaldi);
     font-size: 17px;
 }
 
-#login-btn{background: none;border:none;outline: solid 0.1px white;}
+.explore-dropdown-btn {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navibar-menu-list-item .explore-dropdown {
+    position: absolute;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+    padding: 10px 20px;
+    width: 390px;
+    height: 300px;
+    text-align: left;
+    top: 78px;
+    left: -125px;
+    background-image: linear-gradient(45deg, var(--darker-blue-primary), var(--genre-edm-purple));
+    z-index: 100;
+    border-top: 2px solid white;
+    border-radius: 5px;
+}
+
+.navibar-menu-list-item .explore-dropdown a {
+    display: grid;
+    z-index: 100;
+}
+
+.navibar-menu-list-item:hover .explore-dropdown, .navibar-menu-list-item .explore-dropdown:hover {
+    display: grid;
+}
+
+.explore-dropdown-element-link {
+    display: grid;
+    gap: 20px;
+}
+
+.influential-artists-link-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    line-height: 22px;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+    padding: 10px 0px;
+    border-radius: 5px;
+} 
+    
+.influential-artists-link-wrapper:hover {
+    animation: scale-up-down 0.6s linear;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+} 
+    
+@keyframes scale-up-down {
+    0%, 100% {
+        transform: translateX(0px);
+    } 
+        
+    50% {
+        transform: translateX(4px);
+    }
+}
+
+.influential-artists-link-text {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.influential-artists-link-text i {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.influential-artists-link-subtext {
+    opacity: 0.8;
+}
+
+
+
+
+
+#login-btn {
+    background: none;
+    border: none;
+    outline: solid 0.1px white;
+}
 
 .navibar-menu-list-item a, #login-btn {
     color: white;
@@ -1002,6 +1112,8 @@ ul, li {
 .mobile-sidenav .navibar-menu-list-item {
     font-size: 25px;
 }
+
+
 
 .mobile-sidenav .navibar-login-wrapper {
     padding-left: 2rem;
@@ -2295,7 +2407,6 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 /**/
 
 /*Music Library Page*/
-
 .music-library-header, .about-us-header {
     position: relative;
     overflow: hidden;
@@ -2306,6 +2417,7 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     background-size: cover;
     font-family: var(--ff-Jaldi);
 }
+
 
 #about-us-header {
     position: relative;
@@ -2331,6 +2443,28 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0 auto;
+}
+
+.explore-header-content {
+    width: 100%;
+    position: absolute;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 45px 75px;
+}
+
+
+.explore-header-img-overlay img {
+    position: absolute;
+    background-position: 50% center;
+    object-fit: cover;
+    width: 100%;
+
 }
 
 .about-us-content-wrapper {
@@ -2359,13 +2493,13 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     }
 }
 
-.music-library-title, .about-us-title {
+.explore-title, .music-library-title, .about-us-title {
     color: white;
     font-family: var(--ff-Noto);
     font-size: 100px;
 }
 
-.music-library-sub-title {
+.explore-sub-title, .music-library-sub-title {
     color: rgb(255, 255, 255, 0.6);
     font-size: 25px;
     font-weight: lighter;
