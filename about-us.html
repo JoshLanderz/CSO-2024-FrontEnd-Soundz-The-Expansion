@@ -33,9 +33,9 @@
                 <div id="login" class="modal">
                 </div>
 
-                  <form class="modal-content" action="" method="post">
+                  <form class="modal-content" action="">
                              
-                    <div class="login-container">
+                    <div id="login-container" class="login-container">
 
                       <div class="login-user-psw-wrapper">
                         
@@ -46,6 +46,7 @@
                         </div>
                       </div> 
 
+                      <label id="login-error-message" for="login-username-input" style="position: absolute;"></label>
                       <div class="login-confirmation-wrapper">
                         <div class="remember-me-wrapper">
                             <input type="checkbox" checked="checked" name="remember">
@@ -54,13 +55,32 @@
                             </p>
                         </div>
 
-                        <button class="loginFormBtn" type="submit">Login</button>
+                        <button class="loginFormBtn" type="button" onclick="handleLogin(event)">Login</button>
                       </div>
 
                       <div class="container">
                         <button class="loginFormBtn" type="button" class="cancelbtn" onclick="closeModal();">Cancel</button>
                       </div>
                     </div>
+                    
+
+                    <!--Avatar Selection-->
+                    <!--<div class="avatar-selection" id="avatar-selection" style="display: none;">
+                        <h1 class="avatar-heading">Please select an Avatar</h1>
+                        <div class="avatar-selection-header">
+                            <div class="avatar-button-wrapper">
+                                <button onclick="selectAvatar()" class="male-button">
+                                    <img src="/Images/FE Soundz - Profile Icons/male.png" alt="Male Avatar">
+                                </button>
+                            </div>
+
+                            <div class="avatar-button-wrapper">
+                                <button onclick="selectAvatar()" class="female-button">
+                                    <img src="/Images/FE Soundz - Profile Icons/female.png" alt="Female Avatar">
+                                </button>
+                            </div>
+                        </div>
+                    </div>-->
                   </form>
                 </div>
             
@@ -68,12 +88,13 @@
 
     </div>
 
+
     <header id="about-us-header" class="about-us-header">
 
         <div class="bg-overlay" style="height: 100%;"></div>
     
-         <div class="space" id="space">
-            
+        <div class="space" id="space">
+        
             <div class="logo-wrapper">
                 <img class="logo" src="https://github.com/JoshLanderz19/CW3---Front-End-Soundz-Repository/blob/main/FrontEnd%20Soundz%20Logo.png?raw=true" alt="FrontEnd Soundz logo">
                 <p class="logo-name">FrontEnd Soundz
@@ -86,7 +107,42 @@
                 <ul class="navibar-menu-list">
                     <li class="navibar-menu-list-item"><a href="index.html">Home</a></li>
                     <li class="navibar-menu-list-item"><a href="music library.html"> Music Library</a></li>
-                    <li class="navibar-menu-list-item"><a href="explore.html">Explore</a></li>
+                    <li class="navibar-menu-list-item">
+                        <a href="explore.html" class="explore-dropdown-btn"> Explore</a> 
+                        <!--Explore Dropdown-->
+                        <div class="explore-dropdown">
+                            <div class="explore-dropdown-element-link">
+                                <div class="explore-dropdown-element-link-header">
+                                    <a class="influential-artists-link-wrapper" href="selected-artists.html">
+                                        <div>    
+                                            <h3 class="influential-artists-link-text">
+                                                <i class="fa-solid fa-star"></i>
+                                                Infuential Artists</h3>
+                                            <p class="influential-artists-link-subtext">The Caribbean Legends Who Shaped The Music World</p>
+                                        </div>
+                                    </a>
+                                </div>
+    
+                                <div class="explore-dropdown-element-link-header">
+                                    <a class="influential-artists-link-wrapper" href="selected-artists.html">
+                                        <div>    
+                                            <h3 class="influential-artists-link-text">Learning Music</h3>
+                                            <p class="influential-artists-link-subtext">Instrument, Theory, Cultural Nuances</p>
+                                        </div>
+                                    </a>
+                                </div>
+    
+                                <div class="explore-dropdown-element-link-header">
+                                    <a class="influential-artists-link-wrapper" href="selected-artists.html">
+                                        <div>    
+                                            <h3 class="influential-artists-link-text">Quizzes</h3>
+                                            <p class="influential-artists-link-subtext">History Knowledge, Genres, Caribbean Cultures</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li class="navibar-menu-list-item"><a href="about-us.html">About Us</a></li>
                 </ul>
             </div>
@@ -97,54 +153,9 @@
                 <button class="loginBtn" onclick="showLogin()">Log In</button>
                 <p id="login-welcome-text"></p>
             </div>
-                  
-    
-            <script>
-                function searchOpen() {
-    const defaultSearchEl = document.getElementById("searchEl");
-    
-    defaultSearchEl.classList.remove("openSearchEl");
-    defaultSearchEl.classList.add("newSearchEl");
-    
-    const searchIcon = document.getElementById("search-bar-new-icon");
-    
-    searchIcon.style.right = "12px";
-    }
-    
-    function showLogin() {
-    document.getElementById("loginModal").style.display = "block";
-    }
-    
-    function closeModal() {
-    document.getElementById("loginModal").style.display = "none";
-    }
-    // Function to handle login confirmation (button click)
-    function handleLogin() {
-    // Prevent default form submission behavior
-    event.preventDefault();
-    const username = document.getElementById("login-username-input").value;
-    const welcomeText = document.getElementById("login-welcome-text");
-    welcomeText.textContent = "Welcome, " + username + "!";
-    // Save username in local storage
-    localStorage.setItem("loggedInUsername", username);
-    
-    closeModal();
-    }
-    
-    // Check for stored username on page load
-    const storedUsername = localStorage.getItem("loggedInUsername");
-    if (storedUsername) {
-    const welcomeText = document.getElementById("login-welcome-text");
-    welcomeText.textContent = "Welcome, " + storedUsername;
-    }
-    
-    // Attach the handleLogin function to the login button click event
-    const loginButton = document.querySelector('.loginFormBtn[type="submit"]');
-    loginButton.addEventListener('click', handleLogin);
-            </script>
-        </div>
+         </div>
 
-        </header>  
+    </header>  
 
 
         <div class="about-us-header-content">
@@ -252,6 +263,57 @@
         </div>
     </section>
 
-<script src="script.js" type="text/javascript"></script>
+    <section class="discussion-forum-section" style="display: none;">
+        <!--Discussion Forum Section-->
+        <div class="forum-overlay" id="forum-overlay" style="z-index: 1;">
+            <div class="forum-guest-welcome">
+                <img src="Images/Content/FrontEnd Soundz Logo.png" alt="" width="380px">
+                <div class="text-content">
+                    <h1 class="forum-guest-welcome-heading">Hey there! 🌟</h1>
+                    <p class="forum-guest-welcome-text">To join the conversation, please log in to your account.<br>
+                    <span>
+                        We can't wait to hear what you have to say! 😊</span>
+                    </p>
+                    <div class="discussion-forum-login-wrapper">
+                            <button onclick="showLogin()">Sign up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="discussion-forum-wrapper">
+            <div class="connections-and-topics">
+                <h1 class="discussion-forum-cta-subtitle">Join the conversation!</h1>
+            </div>
+    
+            <form id="discussion-form">
+                <div class="comment-profile" style="display: grid;">
+                    <div class="profile-wrapper">
+                        <img id="profile-img" class="profile-img" src="Images/FE Soundz - Profile Icons/male.png">
+                        <input id="profile-name" for="profile-img" value="">
+                    </div>
+    
+                    <!--Comment Field-->
+                    <textarea type="text" id="comment-text-input" class="comment-text-input" placeholder="ghddfh"></textarea>
+                </div>
+    
+                <!--Submit Button-->
+                <button id="comment-submit-btn">Post
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+    
+                <img class="discussion-forum-fez-logo" src="Images/Content/FrontEnd Soundz Logo.png">
+            </form>
+        </div>
+    
+        <div id="discussion-forum-comments-wrapper">
+        </div>
+    
+    </section>
+    
+    <script src="script.js"></script>
+    <script src="/functions/comments.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
