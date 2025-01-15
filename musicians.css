@@ -111,21 +111,19 @@
   }
   
   .full-roster-navigation {
+    margin-top: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: fit-content;
     width: 100%;
+    border-radius: 15px;
   }
 
   .full-roster-navigation .header-wrapper .header {
-    color: var(--paragraph-text-clr);
+    color: var(--title-purple);
+    width: 100%;
   }
-
-  #section3 .header-wrapper2 .header {
-    color: var(--paragraph-text-clr);
-  }
-
   
   .full-roster-elements-wrapper {
     display: flex;
@@ -134,7 +132,6 @@
     gap: 1rem;
     padding: 1rem;
     width: fit-content;
-    background-color: var(--darker-blue-primary-nav-transparent);
     position: relative;
   }
 
@@ -144,20 +141,20 @@
     z-index: 1;
     padding: 1rem;
     position: absolute;
-    bottom: -360px;
+    bottom: -363px;
     right: 0;
     background-color: var(--darker-blue-primary-nav-transparent);
     gap: 20px;
   }
 
-  .filter-by-year-wrapper, .filter-by-order-wrapper {
+  .filter-by-genre-wrapper, .filter-by-order-wrapper {
     width: 100%;
     display: grid;
     gap: 8px;
     font-family: var(--Inter);
   }
 
-  .filter-by-year-heading {
+  .filter-by-genre-heading {
     width: 100%;
     display: flex;
   }
@@ -217,7 +214,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 36%;
+    right: 34%;
     cursor: pointer;
     color: var(--frame-clr);
   }
@@ -275,10 +272,15 @@
     display: flex;
     justify-content: left;
     gap: 25px;
+    position: relative;
     flex-wrap: wrap;
   }
 
-  
+  .seacrh-results span {
+    background-image: var(--scroll-linear-gradient);
+  }
+
+
   .roster-wrapper {
     width: 100%;
     position: relative;
@@ -298,9 +300,11 @@
     font-family: var(--ff-Jaldi);
     margin-top: -1px; /* Prevent double borders */
     font-size: 12px;
+    position: relative;
     display: grid;
     place-items: center;
     text-decoration: none;
+    text-transform: uppercase;
     transition: linear 0.5s;
     animation-name: search-results-animation;
     animation-duration: 0.5s;
