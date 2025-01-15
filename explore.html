@@ -216,7 +216,7 @@
                             <h3 class="expansion-content-heading">Learn Music</h3>
                             <p class="expansion-content-text">Gain knowledge about an instrument, grasp essential music theory, and experience diverse Caribbean cultural influences!</p>
                             <div class="expansion-content-element-button-link-wrapper">
-                                <a class="expansion-content-element-button-link" href="#">
+                                <a class="expansion-content-element-button-link" href="#quiz-section">
                                     <img src="Images/Content/FrontEnd Soundz Logo.png" alt="">
                                     Visit Page
                                 </a>
@@ -238,7 +238,7 @@
                             <h3 class="expansion-content-heading">Caribbean Quizzes & History</h3>
                             <p class="expansion-content-text">Gain knowledge about an instrument, grasp essential music theory, and experience diverse Caribbean cultural influences!</p>
                             <div class="expansion-content-element-button-link-wrapper">
-                                <a class="expansion-content-element-button-link" href="#">
+                                <a class="expansion-content-element-button-link" href="#quiz-section">
                                     <img src="Images/Content/FrontEnd Soundz Logo.png" alt="">
                                     Visit Page
                                 </a>
@@ -601,7 +601,7 @@
         </div>
     </section> 
 
-    <hr class="section-break-hr">
+    <hr id="quiz-section" class="section-break-hr">
     
     <section>
         <div class="header-wrapper">
@@ -667,92 +667,153 @@ function readMore3() {
 }
     </script>
 
-        
+<h1 style="font-size: 65px; font-family: var(--ff-Jaldi);">Learn Music Quiz Game</h1>
+<div id="quiz-container">
+    <div id="question"></div>
+    <div id="answer-buttons"></div>
+    <button id="next-btn">Next</button>
+</div>
+
 <script>
+const questions = [
+{
+    question: "Which of the following is a popular genre of music originating from Trinidad and Tobago?",
+    answers:[
+        {text:"Calypso", correct:true},
+        {text:"Reggae", correct:false},
+        {text:"Salsa",correct:false},
+        {text:"Merengue", correct:false},
+
+    ]
+},
+{question: "What is the name of the musical instrument commonly associated with steelpan music?",
+    answers:[
+        {text:"Conga Drum", correct:false},
+        {text:"Maracas", correct:false},
+        {text:"Steel Drum",correct:true},
+        {text:"Bongos", correct:false},
+    ]
+},
+{
+    question: "Bob Marley, a global icon in music, is associated with which Caribbean genre?",
+    answers:[
+        {text:"Zouk", correct:false},
+        {text:"Dancehall", correct:false},
+        {text:"Soca",correct:false},
+        {text:"Reggae", correct:true},
+    ]
+},
+{
+    question:  "Which Caribbean country is known for creating the genre of Reggaeton?",
+    answers:[
+        {text:"Haiti", correct:false},
+        {text:"Cuba", correct:false},
+        {text:"Jamaica",correct:false},
+        {text:"Puerto Rico", correct:true},
+    ]
+},
+{
+    question: "What is the name of the annual celebration in Trinidad and Tobago that heavily features soca and calypso music?",
+    answers:[
+        {text:"Carnival", correct:true},
+        {text:"Junkanoo", correct:false},
+        {text:"Fiesta de Santiago",correct:false},
+        {text:"Crop Over", correct:false},
+    ]
+}
+
+];
+
+const questionElement=document.getElementById("question");
+const answerButton=document.getElementById("answer-buttons");
+const nextButton=document.getElementById("next-btn");
+
+let currentQuestionIndex =0;
+let score=0;
 
 function startQuiz(){
-    currentQuestionIndex=0
-    score=0
-    nextButton.innerHTML="Next";
-    showQuestion();
+currentQuestionIndex=0
+score=0
+nextButton.innerHTML="Next";
+showQuestion();
 }
 
 function showQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
-    const questionNo = currentQuestionIndex + 1;
+const currentQuestion = questions[currentQuestionIndex];
+const questionNo = currentQuestionIndex + 1;
 
-    // Hide the previous question and answers before showing the next one
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
-    answerButton.innerHTML = ""; // Clear the answer buttons from the previous question
-    answerButton.classList.remove("hidden"); // Make sure answer buttons are visible
+// Hide the previous question and answers before showing the next one
+questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+answerButton.innerHTML = ""; // Clear the answer buttons from the previous question
+answerButton.classList.remove("hidden"); // Make sure answer buttons are visible
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButton.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-    });
+currentQuestion.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("btn");
+    answerButton.appendChild(button);
+    if (answer.correct) {
+        button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+});
 }
 
 function handleNextButton() {
-    currentQuestionIndex++;
-    answerButton.classList.add("hidden");  // Hide answers before showing the next question
+currentQuestionIndex++;
+answerButton.classList.add("hidden");  // Hide answers before showing the next question
 
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-        nextButton.classList.add("hidden"); // Hide the "Next" button until the user selects an answer
-    } else {
-        showScore();
-    }
+if (currentQuestionIndex < questions.length) {
+    showQuestion();
+    nextButton.classList.add("hidden"); // Hide the "Next" button until the user selects an answer
+} else {
+    showScore();
+}
 }
 
 
 function selectAnswer(e){
-    const selectedBtn=e.target;
-    const isCorrect=selectedBtn.dataset.correct==="true";
-    if(isCorrect){
-        selectedBtn.classList.add("correct");
-        score++;
-    }else{
-        selectedBtn.classList.add("incorrect");
+const selectedBtn=e.target;
+const isCorrect=selectedBtn.dataset.correct==="true";
+if(isCorrect){
+    selectedBtn.classList.add("correct");
+    score++;
+}else{
+    selectedBtn.classList.add("incorrect");
+}
+Array.from(answerButton.children).forEach(button=>{
+    if(button.dataset.correct==="true"){
+        button.classList.add("correct");
     }
-    Array.from(answerButton.children).forEach(button=>{
-        if(button.dataset.correct==="true"){
-            button.classList.add("correct");
-        }
-        button.disabled=true;
-    })
-    nextButton.style.display="block"
-    
+    button.disabled=true;
+})
+nextButton.style.display="block"
+
 }
 function showScore(){
-    resetState();
-    questionElement.innerHTML= `You scored ${score}out of ${questions.length}!`;
-    nextButton.innerHTML = "Play Again";
-    nextButton.style.display = "block";
+resetState();
+questionElement.innerHTML= `You scored ${score}out of ${questions.length}!`;
+nextButton.innerHTML = "Play Again";
+nextButton.style.display = "block";
 }
 
 function handleNextButton(){
-    currentQuestionIndex++;
-    if(currentQuestionIndex<questions.length){
-        showQuestion();
-    }else{
-        showScore();
-    }
+currentQuestionIndex++;
+if(currentQuestionIndex<questions.length){
+    showQuestion();
+}else{
+    showScore();
+}
 }
 
 nextButton.addEventListener("click",()=>{
-    if(currentQuestionIndex < questions.length){
-        handleNextButton();
-    }else{
-        startQuiz();
-    }
+if(currentQuestionIndex < questions.length){
+    handleNextButton();
+}else{
+    startQuiz();
+}
 })
-</script>
+startQuiz()</script>
 
 </main>
 
