@@ -97,12 +97,11 @@ header {
     width: 100%;
     height: 730px;
     background-image: url("Images/Content/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg");
-    background-repeat: no-repeat;
+    background-repeat: no-repeat/cover;
     background-size: cover;
     background-position: center 35%; /*65%*/
     font-family: var(--ff-Jaldi);
 }
-
 
 .bg-overlay {
     position: absolute;
@@ -2763,9 +2762,16 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
 .more1, .more2, .more3 {
     display: none;
+    
 }
 
-.myBtn1, .myBtn2, .myBtn3 {
+
+.button-container{
+    display: flex;
+    gap: 15px;
+}
+
+.myBtn0, .myBtn01, .myBtn1, .myBtn2, .myBtn3 {
     position: relative;
     background: none;
     border: none;
@@ -2785,7 +2791,7 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     transition: linear 0.2s;
 }
 
-.myBtn1:hover, .myBtn2:hover, .myBtn3:hover {
+.myBtn1:hover, .myBtn2:hover, .myBtn3:hover,.myBtn0:hover, .myBtn01:hover {
     background-color: rgb(80, 14, 151, 0.6);
 }
 
@@ -2946,7 +2952,125 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     color: var(--darker-blue-primary);
   }
 
+
   /*Explore Page*/
+  /*Expansion Content*/
+  .fes-expansion-content {
+    width: 100%;
+    display: grid;
+  }
+
+  .fes-expansion-content-header {
+    font-family: var(--ff-Noto);
+    font-size: 20px;
+    display: grid;
+    gap: 5px;
+  }
+ 
+  .fes-soundz-expansion-element-wrapper {
+    margin-block: 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 2rem;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.fes-soundz-expansion-element {
+    background-image: var(--scroll-linear-gradient);
+    width: 540px;
+    padding: 25px;
+    border-radius: 15px;
+    height: 300px;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    font-family: var(--ff-Jaldi);
+    outline: outset;
+}
+
+.expansion-element-icon {
+    display: flex;
+    place-content: center;
+    padding: 10px;
+}
+
+.expansion-element-icon i:nth-of-type(1) {
+    font-size: 20px;
+    color: var(--title-purple);
+}
+
+.expansion-element-icon i:nth-of-type(2) {
+    font-size: 30px;
+}
+
+.expansion-element-icon i:nth-of-type(3) {
+    font-size: 50px;
+    color: var(--title-purple);
+}
+
+.expansion-element-icon i:nth-of-type(4) {
+    font-size: 30px;
+}
+
+.expansion-element-icon i:nth-of-type(6) {
+    font-size: 10px;
+}
+
+
+.fes-expansion-content-sub-title {
+    line-height: 10px;
+    font-size: 15px;
+}
+
+.expansion-content {
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    text-align: center;
+}
+  
+.expansion-content-heading {
+    font-size: 22px;
+}
+
+.expansion-content-text {
+    
+}
+
+.expansion-content-element-button-link-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.expansion-content-element-button-link {
+    background-image: var(--scroll-linear-gradient);
+    display: flex;
+    gap: 4px;
+    place-content: center;
+    place-items: center;
+    text-decoration: none;
+    width: fit-content;
+    padding: 10px 15px;
+    border-radius: 150px;
+    color: white;
+    transition: background-color 0.3s linear;
+}
+
+.expansion-content-element-button-link:hover {
+    background-color: var(--clr-2);
+}
+
+.expansion-content-element-button-link img {
+    width: 40px;
+    height: 40px;
+}
+
+
   .full-roster-navigation {
     display: flex;
     flex-wrap: wrap;
@@ -3670,4 +3794,13 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
 
 /* Selected-artists*/
+
+.icon-wrapper-instruments{
+    color: white;
+    background: var(--genre-edm-purple);
+    width: 60px;
+    height: 40px;
+    border:none;
+    border-radius: 5px;
+}
 
