@@ -77,7 +77,7 @@ img {
 
 header:not(.music-library-header, .about-us-header) {
     overflow: visible;
-    background-image: url("/private/Images/Content/adrian-korte-5gn2soeAc40-unsplash.jpg");
+    background-image: url("/public/Images/Content/adrian-korte-5gn2soeAc40-unsplash.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -240,7 +240,7 @@ header:not(.music-library-header, .about-us-header) {
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    background-image: url("/private/Images/Artists Images/2025 Expansion Artist Images/Selected Artists/bob-marley.jpg");
+    background-image: url("/public/Images/Artists Images/2025 Expansion Artist Images/Selected Artists/bob-marley.jpg");
     background-repeat: no-repeat;
 }
 

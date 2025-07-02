@@ -84,7 +84,7 @@ header {
     overflow: hidden;
     height: 730px;
     width: 100%;
-    background-image: url("/private/Images/Content/hanny-naibaho-aWXVxy8BSzc-unsplash.jpg");
+    background-image: url("/public/Images/Content/hanny-naibaho-aWXVxy8BSzc-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 18%;
@@ -96,7 +96,7 @@ header {
     overflow: hidden;
     width: 100%;
     height: 730px;
-    background-image: url("/private/Images/Content/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg");
+    background-image: url("/public/Images/Content/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg");
     background-repeat: no-repeat/cover;
     background-size: cover;
     background-position: center 35%; /*65%*/
@@ -2411,7 +2411,7 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     overflow: hidden;
     height: 500px;
     width: 100%;
-    background-image: url("/private/Images/Content/wes-hicks-MEL-jJnm7RQ-unsplash.jpg");
+    background-image: url("/public/Images/Content/wes-hicks-MEL-jJnm7RQ-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: var(--ff-Jaldi);
@@ -2423,7 +2423,7 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     overflow: hidden;
     height: 100vh;
     width: 100%;
-    background-image: url("/private/Images/Content/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpg");
+    background-image: url("/public/Images/Content/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 65%;
@@ -2590,7 +2590,7 @@ yhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 .footer {
     min-height: 200px;
     background-color: var(--darker-blue-primary-nav-transparent);
-    background-image: url('/private/Images/Content/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg');
+    background-image: url('/public/Images/Content/bogomil-mihaylov-ekHSHvgr27k-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 20%;
