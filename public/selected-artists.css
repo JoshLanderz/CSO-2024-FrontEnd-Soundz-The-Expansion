@@ -1,0 +1,339 @@
+:root {
+    /*Fonts*/
+    --ff-Jaldi: "Jaldi", sans-serif;
+    --ff-Istok-Web: "Istok-Web", sans-serif;
+    --ff-Noto: "Noto Sans", sans-serif;
+    --ff-Inter: "Inter", sans-serif;
+    
+
+    /*Colors*/
+    --white: rgb(255, 255, 255);
+    --black-currant: rgb(14, 5, 15);
+    --black-currant-transparent: rgb(14, 5, 15, 0.9);
+    --hero-bg-overlay: rgb(14, 5, 15, 0.7);
+    --navibar-bg-transparent: rgb(45, 22, 116, 0.08);
+    --darker-blue-primary: rgb(45, 22, 116);/**/
+    --darker-blue-primary-nav-transparent: rgb(45, 22, 116, 0.97);
+    --darker-blue-primary-transparent: rgb(45, 22, 116, 0.5);
+    --light-purple-primary: rgb(146, 113, 194);
+    --title-purple: rgb(163, 118, 243);
+    --garrison-red: rgb(132, 19, 19);
+    --genre-edm-purple: rgb(112, 58, 207, 0.6);
+    --genre-edm-purple-mobile-sidenav: rgb(112, 58, 207, 0.9);/**/
+    --mobile-sidenav-linear-gradient: linear-gradient(to left, var(--genre-edm-purple-mobile-sidenav), var(--darker-blue-primary));
+
+    --forum-overlay: linear-gradient(to left, rgb(45, 22, 116), rgb(14, 3, 34));
+
+    --cta-text-linear-gradient: linear-gradient(45deg, var(--darker-blue-primary-transparent) 10%, var(--darker-blue-primary));
+
+    --fotn-card-one-linear-gradient: linear-gradient(45deg, var(--darker-blue-primary-transparent), var(--black-currant-transparent));
+
+    --fotn-card-two-linear-gradient: linear-gradient(var(--darker-blue-primary-transparent), var(--black-currant-transparent));
+
+    --scroll-linear-gradient: linear-gradient(45deg, var(--darker-blue-primary-transparent), var(--black-currant-transparent));
+
+    /*Outliner*/
+    --outline: 2px solid var(--garrison-red);
+
+    --clr-1: #2d167480;
+    --clr-2: #703acf99;
+    --clr-3: #ffffff;
+
+    --avatar-male-clr:#eec124;
+    --avatar-female-clr: #f366ba;
+}
+
+
+
+::-moz-selection { /* Code for Firefox */
+    color: var(--paragraph-text-clr);
+    background-color: #22083d;
+  }
+  
+  ::selection {
+    color: white;
+    background-color: #500e97;
+}
+
+img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.selected-artists-body {
+    background-color: var(--genre-edm-purple-mobile-sidenav);
+    margin: 0;
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--black-currant);
+}
+
+
+header:not(.music-library-header, .about-us-header) {
+    overflow: visible;
+    background-image: url("/Images/Content/adrian-korte-5gn2soeAc40-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.selected-artists-header {
+    position: relative;
+    color: white;
+    display: flex;
+    text-align: center;
+    height: 100%;
+}
+
+.selected-artists-heading {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: lighter;
+}
+
+.selected-artists-heading-sub-content-date {
+    line-height: 35px;
+    font-size: 20px;
+}
+
+.selected-artists-heading-sub-content {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    bottom: -68%;
+    left: 50%;
+    display: grid;
+    justify-content: space-evenly;
+    place-content: start;
+    place-items: center;
+    gap: 1rem;
+    background-image: var(--scroll-linear-gradient);
+    padding: 25px 55px;
+    padding-bottom: none;
+    border-radius: 15px;
+}
+
+.selected-artists-heading-sub-content i {
+    font-size: 30px;
+}
+
+
+.intro > p{
+    font-weight: bold;
+    padding: 50px;
+    color: white;
+}
+
+#seleted-artists-wrapper {
+    margin-top: 0rem;
+}
+
+.bottom-boxes {
+    width: 100%;
+    padding: 5rem 5px;
+    outline: var(--outline);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro {
+    background-color: var(--clr-1);
+    padding: 20rem 75px;
+    padding-bottom: 200px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    outline: var(--outline);
+}
+
+.intro h1 {
+    color: white;
+    font-size: 45px;
+    font-family: var(--ff-Jaldi);
+}
+
+.selected-artists-element {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.666);
+    padding: 2rem;
+    border-radius: 35px;
+}
+
+.selected-artists-element img {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.selected-artists-element .flag {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.selected-artists-name-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+}
+
+.selected-artists-name-heading span {
+    color: var(--title-purple);
+}
+
+.selected-artists-element-text {
+    font-family: var(--ff-Jaldi);
+    font-size: 30px;
+    color: white;
+    line-height: 34px;
+}
+
+.flip-card {
+    border-radius: 50%;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+}
+
+.flip-card-front {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("Images/Artists Images/2025 Expansion Artist Images/Selected Artists/bob-marley.jpg");
+    background-repeat: no-repeat;
+}
+
+.flip-card-back {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    place-content: center;
+    position: relative;
+    background-image: var(--cta-text-linear-gradient);
+    border: 3px solid var(--light-purple-primary);
+    transform: rotateY(180deg);
+    background-size: cover;
+}
+
+.flip-card-back h1 {
+    width: 100%;
+    line-height: 34px;
+    font-family: var(--ff-Jaldi);
+    font-size: 16px;
+    font-weight: lighter;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.flip-card-back p {
+    font-family: var(--ff-Jaldi);
+    line-height: 20px;
+    width: fit-content;
+    border-radius: 15px;
+    font-weight: lighter;
+    color: white;
+}
+
+    .arrow {
+        display: grid;
+        place-content: center;
+        place-items: center;
+        background: none;
+        background-color: var(--genre-edm-purple-mobile-sidenav);
+        border: none;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        transform: translate(-50%, 50%);
+        right: 20%;
+        top: 15%;
+        font-size: 55px;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+    }
+    
+    /* Define the keyframes for the up-and-down animation */
+    @keyframes upAndDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(5px);
+        }
+    }
+    
+    /* Apply the animation to the caret icon */
+    .arrow i {
+        animation: upAndDown 1s infinite ease-in-out;
+    }
+
+.bottom-boxes {
+    display: flex;
+    gap: 1rem;
+    height: 10%;
+}
+
+.icon-wrapper-instruments{
+    color: white;
+    background: var(--genre-edm-purple);
+    width: 60px;
+    height: 40px;
+    border:none;
+    border-radius: 5px;}
+
+.icon-wrapper-instruments-1{
+    color: white;
+    background:var(--garrison-red) ;
+    width: 60px;
+    height: 40px;
+    border:none;
+    border-radius: 5px;
+
+}

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd Soundz | It's More Than Music, It's A Movement | The Expansion!</title>
+    <link rel="icon" href="Images/Content/FrontEnd Soundz Logo.png">
+
+    <link rel="stylesheet" href="selected-artists.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!--Plyr CSS & JS CDN Links-->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+    <script src="https://kit.fontawesome.com/63d3360e1a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b5390d3db8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jaldi:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body class="selected-artists-body">
+    <header>
+
+        <div class="bg-overlay"></div>
+    
+        <div class="space" id="space">
+            
+            <div class="logo-wrapper">
+                <img class="logo" src="https://github.com/JoshLanderz19/CW3---Front-End-Soundz-Repository/blob/main/FrontEnd%20Soundz%20Logo.png?raw=true" alt="FrontEnd Soundz logo">
+                <p class="logo-name">FrontEnd Soundz
+                    <span class="logo-span" id="logo-span">It's more than music, it's a movement</span>
+                </p>
+            </div>
+    
+            <div class="navibar-menu-space">
+                
+                <ul class="navibar-menu-list">
+                    <li class="navibar-menu-list-item"><a href="index.html">Home</a></li>
+                    <li class="navibar-menu-list-item"><a href="music library.html"> Music Library</a></li>
+                    <li class="navibar-menu-list-item">
+                        <a href="explore.html" class="explore-dropdown-btn"> Explore</a> 
+                        <!--Explore Dropdown-->
+                        <div class="explore-dropdown">
+                            <div class="explore-dropdown-element-link">
+                                <div class="explore-dropdown-element-link-header">
+                                    <a class="influential-artists-link-wrapper" href="selected-artists.html">
+                                        <div>    
+                                            <h3 class="influential-artists-link-text">
+                                                <i class="fa-solid fa-star"></i>
+                                                Infuential Artists</h3>
+                                            <p class="influential-artists-link-subtext">The Caribbean Legends Who Shaped The Music World</p>
+                                        </div>
+                                    </a>
+                                </div>
+    
+                                <div class="explore-dropdown-element-link-header">
+                                    <a class="influential-artists-link-wrapper" href="selected-artists.html">
+                                        <div>    
+                                            <h3 class="influential-artists-link-text">Learning Music</h3>
+                                            <p class="influential-artists-link-subtext">Instrument, Theory, Cultural Nuances</p>
+                                        </div>
+                                    </a>
+                                </div>
+    
+                                <div class="explore-dropdown-element-link-header">
+                                    <a class="influential-artists-link-wrapper" href="selected-artists.html">
+                                        <div>    
+                                            <h3 class="influential-artists-link-text">Quizzes</h3>
+                                            <p class="influential-artists-link-subtext">History Knowledge, Genres, Caribbean Cultures</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navibar-menu-list-item"><a href="about-us.html">About Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="naivbar-login-wrapper">
+                <i class="fa-solid fa-user" style="color: #fcfcfc;"></i> 
+                <!-- <a class="login-btn" href="login.html">Login</a>-->
+                <button id="loginBtn" class="loginBtn" onclick="showLogin()">Log In</button>
+                <p id="login-welcome-text"></p>    
+            </div>
+        </div>
+
+        <div class="selected-artists-header">
+            <h1 class="selected-artists-heading">
+                CARIBBEAN LEGENDS WHO <br> HELPED SHAPE THE <br> MUSIC WORLD
+            </h1>
+            
+            <div class="selected-artists-heading-sub-content">
+                <div class="selected-artists-heading-sub-content-date">
+                    <h2>Last Updated: </h2>
+                    <p>January 14th, 2025</p>
+                </div>
+                <div>
+                    <i class="fa fa-share"></i>
+                    <i class="fa-solid fa-link"></i>
+                </div>
+                <div>
+                    <img src="Images/Content/FrontEnd Soundz Logo.png" alt="" width="250px" height="250px">
+                </div>
+            </div>
+        </div>
+
+    </header>
+    
+    <section id="seleted-artists-wrapper">
+    <div class="intro">
+        <h1>Selected Artists</h1>
+
+        <div class="selected-artists-element">
+
+                <div class="flip-card">
+                    <div class="flip-card-inner" style="width: 450px; height: 450px; border-radius: 50%;">
+            
+                        <div class="flip-card-front" style="width: 450px; height: 450px; border-radius: 50%; background-size: cover; background-image: url('Images/Artists Images/2025 Expansion Artist Images/Selected Artists/bob-marley.jpg'); background-position: center;">
+                        </div>
+            
+                        <div class="flip-card-back" style="width: 450px; height: 450px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 1rem; background-color: #2980b9; color: white;">
+                            <h1>Music Groups:<span> Bob Marley and the Wailers</span></h1>
+                            <h1>Genre: <span>Reggae</span></h1>
+                            <h1>D.O.B: <span>Feb 6, 1945 - May 11, 1981</span></h1>
+                        </div>
+            
+                    </div>
+                </div>
+            
+
+            <div>
+                <h1 class="selected-artists-name-heading">
+                    <img class="flag" src="Images/FE Soundz - Profile Icons/Flags/Jamaica.png">
+                    <span>1. Bob Marley</span>
+                </h1>
+                <p class="selected-artists-element-text">
+                    The iconic Jamaican singer, songwriter, and musician whose reggae music transcended boundaries and brought the sounds of the Caribbean to the world.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="bottom-boxes">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"
+                     style="background-image: url('Images/Artists Images/2025 Expansion Artist Images/Selected Artists/grandmaster flash.jpg');">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Grandmaster Flash</h1>
+                    <p>Grandmaster Flash is the nickname of a Barbados-born recording artist who moved to the US as a child. Fueled by his father's love of Caribbean music, he laid the foundations of the hip-hop genre by pioneering DJing, cutting, scratching, and mixing techniques. Grandmaster Flash became a protege of DJ Kool Herc.</p>
+                    <span class="icon wrapper">
+                        <i class="fa fa-circle-arrow-right"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"
+                     style="background-image: url('Images/Artists Images/2025 Expansion Artist Images/Selected Artists/gloria estefan.webp');">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Gloria Estefan</h1>
+                    <p>Gloria Estefan is a native Cuban. As a child, she fled Havana during the Cuban Revolution with her family for a better life in the United States. In 1975, the future Grammy Award winner met fellow Cuban musician Emilio Estefan, Jr. while his band performed at a wedding that Gloria and her cousin were attending as guests. When the girls sang two songs extemporaneously, the band asked them to join them as full-time vocalists. The group subsequently morphed into the Miami Sound Machine.</p>
+                    <span class="icon wrapper">
+                        <i class="fa fa-circle-arrow-right"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"
+                     style="background-image: url('Images/Artists Images/2025 Expansion Artist Images/Selected Artists/billy ocean.jpg');">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Billy Ocean</h1>
+                    <p>If you remember that Grammy Award-winning 1984 pop song, “Caribbean Queen No More Love on the Run,” then it only seems right that the man who sang it would be from the Caribbean himself. Billy Ocean is the stage name for Leslie Sebastian Charles, who was born in Trinidad. His father was a local calypso musician, and his mother also sang.</p>
+                    <span class="icon wrapper">
+                        <i class="fa fa-circle-arrow-right"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"
+                     style="background-image: url('Images/Artists Images/2025 Expansion Artist Images/Selected Artists/Alston Becket Cryrus.webp');">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Alston Becket Cyrus</h1>
+                    <p>Alston Becket Cyrus is a celebrated Vincentian calypsonian, songwriter, and music icon known for his significant contributions to calypso and soca music. Born in St. Vincent and the Grenadines, Becket's career spans several decades, earning him widespread acclaim for his witty lyrics, vibrant melodies, and infectious rhythms. He is best known for hits like "Teaser," "Coming High," and "Wine Down," which showcase his versatility and ability to captivate audiences.</p>
+                    <span class="icon wrapper">
+                        <i class="fa fa-circle-arrow-right"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+     <section id="apps">
+    <div class="grid">
+     
+        <div class="card">
+        <!--Gonna put a wrapper around your p tags to control it-->
+          <h2 style="color: rgb(132, 19, 19);">MARIMBA</h2>
+          
+          <!--Type this out below and press tab.
+            div.p-wrapper (exactly learnt from my Second father Kevin Powell lol. man is based. FR)
+        -->
+            <div class="p-wrapper"> <!--Back to CSS for a min-->
+                <p>The marimba is a percussion instrument with wooden bars struck by mallets, producing musical tones. Its range typically spans four to five octaves, and resonators amplify the sound. </p>
+                    
+                <p>Originating in Africa and later popularized in Central and South America, it’s used in solo, orchestral, and ensemble settings. Known for its rich, warm tones, it’s played with various mallet techniques to achieve different sounds.
+                </p>
+                <button class="icon-wrapper-instruments-1" onclick="playAudio()">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <audio id="marimba">
+                    <source src="Audio/y2mate.com - Marimba  Sound Sample.mp3" type="audio/mp3">
+                </audio>
+
+            </div> 
+
+        </div> 
+
+
+      <div class="card">
+           <img src="https://images.unsplash.com/photo-1526394931762-90052e97b376?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="record player">
+      </div>
+     
+      <div class="card">
+          <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xYVnBRdGcyUWZ2b3x8ZW58MHx8fHx8" alt="Mic">
+          
+      </div>
+     
+     <div class="card">
+            <h2>CABASA</h2>
+            <div class="p-wrapper">
+                <p>The cabasa is a percussion instrument consisting of a cylindrical frame covered with beads or steel balls strung on wires. It is played by shaking or rubbing the beads with the hands, creating a distinctive rattling sound. </p>
+                <p> The cabasa is often used in Latin and Afro-Cuban music, providing rhythmic texture. Its tone can be altered by varying the pressure on the frame or the speed of shaking</p>
+                <button class="icon-wrapper-instruments">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <audio id="cabasa">
+                    <source src="/Audio/lp-large-wood-afuche-cabasa-lp234b-128-ytshorts.savetube.me.mp3" type="audio/mp3">
+                </audio>
+            </div>
+           
+            
+         
+            <!--A tags: Type (a) then tab--> 
+    </div>
+     
+     <div class="card">
+          <h2>GUIRA</h2>
+          <div class="p-wrapper">
+            <p>The güira is a percussion instrument. It consists of a metal sheet with ridges or grooves, often shaped like a long cylinder. The instrument is played by scraping a metal stick or brush along the surface, producing a bright, raspy sound. It adds a distinctive rhythmic texture and is typically used in combination with other percussion instruments</p>
+            <p>
+                The güira originates from the Dominican Republic, commonly used in merengue and other Latin music styles. </p>
+                <button class="icon-wrapper-instruments">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <audio id="guira">
+                    <source src="/Audio/y2mate.com - LP  Merengue Guiro with Scraper LP305.mp3" type="audio/mp3">
+                </audio>
+          </div>
+        
+    </div>
+     
+     <div class="card">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8WFZwUXRnMlFmdm98fGVufDB8fHx8fA%3D%3D" alt="Acoustic Guitars">
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8WFZwUXRnMlFmdm98fGVufDB8fHx8fA%3D%3D" alt="Acoustic Guitars">
+          </div>
+
+
+        <div class="card">
+            <h2 style="color: rgb(132, 19, 19);">COWBELL</h2>
+            <div class="p-wrapper">
+              <p>The cowbell is a percussion instrument made of metal, typically shaped like a bell, with a slit on the side. It is played by striking it with a mallet or stick, producing a sharp, ringing sound. </p>
+              <p>
+                Common in many genres of music, including Latin, jazz, and rock, in countries in the Caribbean and Latin America.it is often used to add rhythmic accents or texture to a song. The cowbell can vary in size, with different pitches depending on the size and shape of the bell.</p>
+                <button class="icon-wrapper-instruments-1">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <audio id="cowbell">
+                    <source src="/Audio/cowbell-9-audio-sample-128-ytshorts.savetube.me.mp3" type="audio/mp3">
+                </audio>
+            </div>
+
+      </div>
+       
+       
+
+          <div class="card">
+            <h2>STEEL PAN</h2>
+            <div class="p-wrapper">
+              <p>The steel pan, also known as a steel drum, is a percussion instrument originating from Trinidad and Tobago. It is made from a 55-gallon metal drum that is carefully shaped and tuned with distinct concave sections, each producing a different pitch when struck with mallets. </p>
+              <p>
+                The steel pan has a bright, melodic sound and is used in a variety of musical genres, including calypso, soca, and jazz. It plays a central role in Caribbean music and has become popular worldwide in both solo and ensemble performances. </p>
+                <button class="icon-wrapper-instruments">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <audio id="steel-pan">
+                    <source src="/Audio/synchronized-steel-pan-128-ytshorts.savetube.me.mp3" type="audio/mp3">
+                </audio>
+            </div>
+          
+      </div>
+       
+       <div class="card">
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8WFZwUXRnMlFmdm98fGVufDB8fHx8fA%3D%3D" alt="Acoustic Guitars">
+          </div>
+
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8WFZwUXRnMlFmdm98fGVufDB8fHx8fA%3D%3D" alt="Acoustic Guitars">
+          </div>
+
+          <div class="card">
+            <h2>MARACAS</h2>
+            <div class="p-wrapper">
+              <p>Maracas are handheld percussion instruments consisting of a hollow container filled with beads, seeds, or small objects, and typically made from wood, plastic, or gourd. They are played by shaking, creating a rattling sound. </p>
+              <p>
+                Maracas are often used in Latin, Afro-Cuban, and Caribbean music, adding rhythm and texture. They come in various sizes and can produce different tones depending on their construction. Maracas are popular in genres such as salsa, merengue, and reggae, and are frequently used in both folk and contemporary performances.</p>
+                <button class="icon-wrapper-instruments">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <audio id="maracas">
+                    <source src="Audio/y2mate.com - Maracas Solo Demo Advanced Techniques Meinl Percussion (1).mp3" type="audio/mp3">
+                </audio>
+            </div>
+         
+      </div>
+       
+       
+
+          <div class="card">
+            <h2 style="color: rgb(132, 19, 19);">RACHET</h2>
+            <div class="p-wrapper">
+              <p>A ratchet is a percussion instrument made of a wooden or plastic frame with notched ridges along one side. It is played by rotating a stick or handle along the notched surface, creating a distinctive clicking or ratcheting sound.</p>
+              <p>
+                The ratchet is often used in Latin American and Caribbean music, as well as in orchestral and folk music. It adds rhythmic texture and is particularly associated with celebrations or festive occasions, often accompanying other percussion instruments like drums or maracas</p>
+                <button class="icon-wrapper-instruments-1" onclick="playAudio()">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                
+                <audio id="rachet">
+                    <source src="/Audio/marimba-ringtone-2-278833.mp3" type="audio/mp3">
+                   
+                </audio>
+                
+                <script>
+                    var audio = document.getElementById('rachet');
+                
+                    function playAudio() {
+                        audio.play();
+                    }
+                
+                    function pauseAudio() {
+                        audio.pause();
+                    }
+                </script>
+              </div>  
+         
+      </div>
+
+
+      
+
+       <div class="card">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8WFZwUXRnMlFmdm98fGVufDB8fHx8fA%3D%3D" alt="Acoustic Guitars">
+          </div>
+
+    </div>
+     </section>
+    </section>
+
+    <section class="footer">
+        <div class="footer-row">
+            <div class="logo-col">
+            <a class="logo-link" href="index.html">
+                <img class="logo"  src="Images/Content/FrontEnd Soundz Logo.png" alt="">
+            </a>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Communities</h4>
+                <ul class="footer-links-list">
+                    <li class="footer-links"><a href="music library.html">Music Library</a></li>
+                    <li class="footer-links"><a href="https://discord.com/invite/m7R8XQ4s">Discord</a></li>
+                    <li class="footer-links"><a href="about-us.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Useful Links</h4>
+                <ul class="footer-links-list">
+                    <li class="footer-links"><a href="#">Support</a></li>
+                    <li class="footer-links"><a href="#">Free Mobile App</a></li>
+                    <li class="footer-links"><a href="#">Privacy Policy</a></li>
+                    <li class="footer-links"><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Newsletter</h4>
+                <div class="newsletter-wrapper">
+                    <p class="newsletter-text">
+                        Subscribe to our newsletter for a monthly dose of news and updates about your favourite artists.
+                    </p>
+                    <form action="mailto:someone@example.com" enctype="text/plain">
+                        <input id="newsletterEl" type="email" placeholder="Your e-mail" required>
+                        <button class="email-button" type="submit" style="background-color:  var(--genre-edm-purple);">SUBSCRIBE</button>
+                    </form>
+                </div>
+    
+                <div class="" style="margin-top: 15px;">
+                    <a target="_blank" href="https://open.spotify.com/artist/3tpxZOPwm3IFQo00wq6hNd?si=4BSyEF3FRVuic6n8JmSBFA" class="icon-button spotify">
+                        <i class="fab fa-spotify"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/lylekam/" class="icon-button instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/KamLyle" class="icon-button twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <span></span>
+                    </a>
+                    <a target="_blank" href="" class="icon-button discord">
+                        <i class="fa-brands fa-discord"></i>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="script.js"></script>
+    <script src="server.js"></script>
+
+    
+    </body>
+    </html>
