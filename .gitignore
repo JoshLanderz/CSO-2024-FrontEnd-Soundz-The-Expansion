@@ -1,0 +1,25 @@
+# 🔐 Hide all private code & sensitive data
+/private/
+.env
+.env.local
+*.key
+*.pem
+*.cert
+
+# ⚙️ Ignore system + IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 🚫 Ignore log files and temp files
+*.log
+*.tmp
+
+# 📦 Ignore dependency installs
+node_modules/
+package-lock.json
+yarn.lock
+
+# 🧪 Ignore Netlify CLI stuff (if used)
+.netlify/
