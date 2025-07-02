@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FrontEnd Soundz | It's More Than Music, It's A Movement</title>
+        <link rel="icon" href="Images/Content/FrontEnd Soundz Logo.png">
+    
+        <link rel="stylesheet" href="styles.css">
+    
+        <!--Plyr CSS & JS CDN Links-->
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+        <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    
+        <script src="https://kit.fontawesome.com/63d3360e1a.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/b5390d3db8.js" crossorigin="anonymous"></script>
+        
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jaldi:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+        </style>
+    </head>
+<body>
+    <header>
+        <div class="bg-overlay"></div>
+    
+         <div class="space" id="space" style="height: 100%;">
+        </div>
+    
+    
+        <div class="hero-wrapper" id="blocker-hero-wrapper">
+
+            <div class="logo-wrapper" id="blocker-logo-wrapper">
+                <img class="logo" src="https://github.com/JoshLanderz19/CW3---Front-End-Soundz-Repository/blob/main/FrontEnd%20Soundz%20Logo.png?raw=true" alt="FrontEnd Soundz logo">
+                <p class="logo-name">FrontEnd Soundz
+                    <span class="logo-span" id="logo-span">It's more than music, it's a movement</span>
+                </p>
+                <p class="site-progress">IN PROGRESS</p>
+            </div>
+    
+        </div>
+        <audio id="auto-audio" src="Audio/Lyle Kam - internet crush [Thematic].mp3" loop="loop"></audio>
+
+
+        <script>
+            window.onload = function() {
+    document.getElementById("auto-audio").play();
+}
+        </script>
+        </header>
+</body>
+</html>
